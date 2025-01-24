@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import NextLink from "next/link";
 import Grid from "@mui/material/Grid2";
+import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   maxWidth: 345,
@@ -54,20 +55,22 @@ export default function HomePage() {
   return (
     <>
       <main>
-        <Container maxWidth="lg">
-          <Typography variant="h2">
-            React <span className="text-grape">Mini </span> Projects
-          </Typography>
-          <Grid container direction="row" spacing={2}>
-            {Object.keys(links).map((url) => (
-              <Grid key={url} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-                <LinkCard key={url} href={url} heading={links[url]!.heading}>
-                  {links[url]!.synopsis}
-                </LinkCard>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+        <ThemeProviderWrapper>
+          <Container maxWidth="lg">
+            <Typography variant="h2">
+              React <span className="text-grape">Mini </span> Projects
+            </Typography>
+            <Grid container direction="row" spacing={2}>
+              {Object.keys(links).map((url) => (
+                <Grid key={url} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                  <LinkCard key={url} href={url} heading={links[url]!.heading}>
+                    {links[url]!.synopsis}
+                  </LinkCard>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </ThemeProviderWrapper>
       </main>
     </>
   );

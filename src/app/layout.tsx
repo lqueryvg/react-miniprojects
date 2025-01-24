@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
+// import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
 
 export const metadata: Metadata = {
   title: "React Mini Projects",
@@ -12,7 +12,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+        {/* <ThemeProviderWrapper>{children}</ThemeProviderWrapper> */}
+        {children}
       </body>
     </html>
   );
