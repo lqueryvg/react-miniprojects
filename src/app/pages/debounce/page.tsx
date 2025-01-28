@@ -32,7 +32,6 @@ const App = () => {
           placeholder="type a string..."
           value={textValue}
           onChange={(e) => setTextValue(e.target.value)}
-          // className="mb-4 w-96"
           className="mb-4"
         />
         <p className="mb-4 w-full min-w-3.5 text-muted-foreground">
@@ -48,8 +47,8 @@ export default function Wrapper() {
     <>
       {/* <li className="prose max-w-[screen-sm]"> */}
       <li>
-        create a custom hook <Code inline>useDebounce()</Code> which allows you
-        to debounce values which change frequently
+        creates a custom hook <Code inline>useDebounce()</Code> to debounce
+        values which change frequently
       </li>
       <li>
         called as follows: <br />
