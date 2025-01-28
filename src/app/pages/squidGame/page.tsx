@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { GameMenu, GameRunning } from "./components";
-import { DemoPage } from "@/components";
-import { Typography } from "@mui/material";
 import { URLTextLink } from "@/components/URLTextLink";
+import { DemoPageShad } from "@/components";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -35,16 +34,20 @@ function App() {
 export default function Wrapper() {
   const notelist = (
     <>
-      <Typography component="li">
+      <li>
         See:{" "}
         <URLTextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
-      </Typography>
+      </li>
     </>
   );
 
   return (
-    <DemoPage href="/pages/squidGame" notelist={notelist} heading="Objectives">
+    <DemoPageShad
+      href="/pages/squidGame"
+      notelist={notelist}
+      heading="Objectives"
+    >
       <App />
-    </DemoPage>
+    </DemoPageShad>
   );
 }

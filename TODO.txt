@@ -1,0 +1,6 @@
+[x] migrate all demo pages to shadcn
+[ ] migrate root page to shadcn
+[ ] remove MUI
+[ ] use pre and code instead of Code
+[ ] get rid of URLTextLink
+[ ] fix editing bugs on phone number input

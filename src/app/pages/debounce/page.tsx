@@ -63,7 +63,11 @@ export default function Wrapper() {
     </>
   );
   return (
-    <DemoPageShad href="/pages/debounce" notelist={notelist}>
+    <DemoPageShad
+      href="/pages/debounce"
+      notelist={notelist}
+      heading="Functional Requirements"
+    >
       <App />
     </DemoPageShad>
   );

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { DemoPage } from "~/app/components";
-import { Stack, TextField, Typography } from "@mui/material";
 import { URLTextLink } from "@/components/URLTextLink";
 import { Code } from "@/components/Code";
+import { DemoPageShad } from "@/components";
+import { Input } from "~/components/ui/input";
 
 const formatPhoneNumber = (value: string) => {
   let formattedText = value.replace(/[^\d]/g, ""); // remove all non-digits
@@ -46,71 +46,49 @@ const PhoneNumberInput = () => {
   };
 
   return (
-    <TextField
-      label="Enter phone number"
+    <Input
+      type="text"
+      placeholder="Type something..."
       value={textValue}
       onChange={handleChange}
-      inputRef={inputRef}
-      fullWidth
-      slotProps={{
-        htmlInput: {
-          inputMode: "numeric",
-          maxLength: "(123) 456-7890123".length,
-        },
-      }}
+      ref={inputRef}
+      className="mb-4"
+      maxLength={"(123) 456-7890123".length}
     />
-  );
-};
-
-const App = () => {
-  return (
-    <div>
-      <Stack direction="row" alignItems="center" spacing={1} useFlexGap>
-        <PhoneNumberInput />
-      </Stack>
-    </div>
   );
 };
 
 export default function Wrapper() {
   const notelist = (
     <>
-      <Typography component="li">
+      <li>
         create <Code inline>PhoneNumberInput</Code> component
-      </Typography>
-      <Typography component="li">
-        user types digits into input text field
-      </Typography>
-      <Typography component="li">
-        enforce input of numerical digits only
-      </Typography>
-      <Typography component="li">13 digits max</Typography>
-      <Typography component="li">
+      </li>
+      <li>user types digits into input text field</li>
+      <li>enforce input of numerical digits only</li>
+      <li>13 digits max</li>
+      <li>
         automatic formatting:
-        <Typography component="ul">
-          <Typography component="li">
-            add parens around first 3 digits
-          </Typography>
-          <Typography component="li">insert a dash after 6th digit</Typography>
-        </Typography>
-      </Typography>
-      <Typography component="li">
-        editing the number should work as expected
-      </Typography>
-      <Typography component="li">
+        <ul>
+          <li>add parens around first 3 digits</li>
+          <li>insert a dash after 6th digit</li>
+        </ul>
+      </li>
+      <li>editing the number should work as expected</li>
+      <li>
         Credit:{" "}
         <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
-      </Typography>
+      </li>
     </>
   );
 
   return (
-    <DemoPage
+    <DemoPageShad
       href="/pages/phoneInput"
       notelist={notelist}
       heading="Functional Requirements"
     >
-      <App />
-    </DemoPage>
+      <PhoneNumberInput />
+    </DemoPageShad>
   );
 }

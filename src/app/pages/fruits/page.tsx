@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { DemoPage } from "@/components";
-import { TextField, Typography } from "@mui/material";
+import { DemoPageShad } from "@/components";
+
 import { URLTextLink } from "@/components/URLTextLink";
+import { Input } from "~/components/ui/input";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -31,21 +32,21 @@ const App = () => {
 
   return (
     <div>
-      <TextField
-        label="Type something"
+      <Input
         type="text"
-        variant="outlined"
+        placeholder="Type something..."
+        value={inputValue}
         onChange={handleInputChange}
+        className="mb-4"
       />
+
       <div>
         {fruits
           .filter((fruit) =>
             fruit.toLowerCase().includes(inputValue.toLowerCase()),
           )
           .map((fruit) => (
-            <Typography key={fruit} variant="h5">
-              {fruit}
-            </Typography>
+            <h1 key={fruit}>{fruit}</h1>
           ))}
       </div>
     </div>
@@ -55,30 +56,26 @@ const App = () => {
 export default function Wrapper() {
   const notelist = (
     <>
-      <Typography component="li">display a list of fruits</Typography>
-      <Typography component="li">
+      <li>display a list of fruits</li>
+      <li>
         as the user types, display only those items that match the search term
-      </Typography>
-      <Typography component="li">
-        the list should update as soon as the user types
-      </Typography>
-      <Typography component="li">
-        display a friendly message if no items match the search
-      </Typography>
-      <Typography component="li">
+      </li>
+      <li>the list should update as soon as the user types</li>
+      <li>display a friendly message if no items match the search</li>
+      <li>
         Credit:{" "}
         <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s" />
-      </Typography>
+      </li>
     </>
   );
 
   return (
-    <DemoPage
+    <DemoPageShad
       href="/pages/fruits"
       notelist={notelist}
       heading="Functional Requirements"
     >
       <App />
-    </DemoPage>
+    </DemoPageShad>
   );
 }
