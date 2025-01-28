@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DemoPage } from "@/components";
-import { Stack, TextField, Typography } from "@mui/material";
+import { DemoPageShad } from "@/components";
 import { URLTextLink } from "@/components/URLTextLink";
 import { Code } from "@/components/Code";
-import { useTheme } from "@mui/material/styles";
+import { Input } from "~/components/ui/input";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
   const [debouncedValue, setDebouncedValue] = useState("");
@@ -23,67 +22,50 @@ const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
 
 const App = () => {
   const [textValue, setTextValue] = useState("");
-  const theme = useTheme();
   const debouncedValue = useDebounce(textValue, 1000);
 
   return (
-    <Stack alignItems={"center"} spacing={2}>
-      <TextField
-        label="type a string"
-        type="text"
-        variant="outlined"
-        fullWidth
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setTextValue(e.target.value)
-        }
-      />
-      <TextField
-        label="debounced string"
-        fullWidth
-        variant="outlined"
-        value={debouncedValue}
-        slotProps={{
-          input: {
-            // Use slotProps.input
-            readOnly: true,
-            style: { cursor: "default" }, // disable input cursor
-          },
-        }}
-        sx={{
-          "& .MuiInputBase-root": {
-            backgroundColor: theme.palette.action.disabledBackground, // Consistent background
-          },
-          "& .MuiInputBase-input": {
-            cursor: "default", // mouse cursor
-          },
-        }}
-      />
-    </Stack>
+    <>
+      <div className="min-w-[60ch] max-w-[300px] flex-1">
+        <Input
+          type="text"
+          placeholder="type a string..."
+          value={textValue}
+          onChange={(e) => setTextValue(e.target.value)}
+          // className="mb-4 w-96"
+          className="mb-4"
+        />
+        <p className="mb-4 w-full min-w-3.5 text-muted-foreground">
+          Debounced value: {debouncedValue}
+        </p>
+      </div>
+    </>
   );
 };
 
 export default function Wrapper() {
   const notelist = (
     <>
-      <Typography component="li">
-        create a custom hook <Code inline>useDebounce()</Code> that allows you
+      {/* <li className="prose max-w-[screen-sm]"> */}
+      <li>
+        create a custom hook <Code inline>useDebounce()</Code> which allows you
         to debounce values which change frequently
-      </Typography>
-      <Typography component="li">
+      </li>
+      <li>
         called as follows: <br />
         <Code>
           debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
         </Code>
-      </Typography>
-      <Typography component="li">
+      </li>
+      <li>
         credit:{" "}
         <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
-      </Typography>
+      </li>
     </>
   );
   return (
-    <DemoPage href="/pages/debounce" notelist={notelist}>
+    <DemoPageShad href="/pages/debounce" notelist={notelist}>
       <App />
-    </DemoPage>
+    </DemoPageShad>
   );
 }

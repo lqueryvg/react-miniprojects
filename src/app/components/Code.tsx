@@ -1,31 +1,15 @@
-import { Typography, Paper } from "@mui/material";
-
 export const Code = (props: {
   children: React.ReactNode;
   inline?: boolean;
 }) => {
-  const commonStyles = {
-    fontFamily: "Monospace",
-    ...(props.inline
-      ? {
-          padding: "1px 1px",
-          borderRadius: "4px",
-        }
-      : {
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-all",
-        }),
-  };
-
   return props.inline ? (
-    <Typography component="code" sx={commonStyles}>
-      {props.children}
-    </Typography>
+    // <code className="pl-1 pr-1 text-destructive">{props.children}</code>
+    <code>{props.children}</code>
   ) : (
-    <Paper elevation={3} sx={{ padding: 2, overflowX: "auto" }}>
-      <Typography component="pre" sx={commonStyles}>
-        {props.children}
-      </Typography>
-    </Paper>
+    // <pre className="overflow-x-auto rounded-lg border-l-2 pl-6 leading-10 text-destructive">
+    //   {props.children}
+    // </pre>
+    // <pre className="prose">{props.children}</pre>
+    <pre>{props.children}</pre>
   );
 };
