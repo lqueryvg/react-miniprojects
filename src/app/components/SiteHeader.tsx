@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { Button } from "~/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Avatar, AvatarFallback } from "~/components/ui/avatar";
 import { ThemeSwitcher } from "~/components/theme-switcher";
 
 export function SiteHeader() {
@@ -48,7 +48,6 @@ export function SiteHeader() {
           <ThemeSwitcher />
 
           <Avatar className="h-8 w-8">
-            <AvatarImage src="/avatar.svg" alt="User" />
             <AvatarFallback>Me</AvatarFallback>
           </Avatar>
         </div>

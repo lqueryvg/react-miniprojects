@@ -1,5 +1,4 @@
 import { type Metadata } from "next";
-// import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +12,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        {/* <div className="min-w-[50%]">body test div</div> */}
-        {/* <ThemeProviderWrapper>{children}</ThemeProviderWrapper> */}
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

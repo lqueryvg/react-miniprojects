@@ -1,10 +1,10 @@
 "use client";
 
 import { useTodoList } from "./useTodoList";
-import { DemoPage } from "@/components";
 import { Typography, Button, TextField, Stack, Paper } from "@mui/material";
 import { URLTextLink } from "@/components/URLTextLink";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { DemoPageShad } from "@/components";
 
 const App = () => {
   const { todos, addTodo, removeTodo, toggleTodo } = useTodoList();
@@ -76,8 +76,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage href="/pages/persistentTodoList" notelist={notelist}>
+    <DemoPageShad href="/pages/persistentTodoList" notelist={notelist}>
       <App />
-    </DemoPage>
+    </DemoPageShad>
   );
 }

@@ -1,77 +1,50 @@
-"use client";
+// "use client";
 import { links } from "./links";
+import NextLink from "next/link";
+import { ThemeProvider } from "next-themes";
+import "~/styles/globals.css";
+
+// import { Inter } from "next/font/google";
+// const inter = Inter({ subsets: ["latin"] });
+
 import {
   Card,
-  CardContent,
-  Container,
-  styled,
-  Typography,
-} from "@mui/material";
-import NextLink from "next/link";
-import Grid from "@mui/material/Grid2";
-import ThemeProviderWrapper from "./components/ThemeProviderWrapper";
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  maxWidth: 345,
-  margin: theme.spacing(2),
-  "&:hover": {
-    boxShadow: theme.shadows[4],
-    transform: "scale(1.02)",
-    transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-  },
-}));
-
-const StyledLink = styled(NextLink)(() => ({
-  textDecoration: "none",
-  // Remove all inherited link styles:
-  color: "inherit",
-  "&:hover": {
-    textDecoration: "none",
-  },
-}));
-
-const LinkCard = (props: {
-  href: string;
-  heading: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <StyledCard>
-      <StyledLink href={props.href}>
-        <div>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {props.heading}
-            </Typography>
-            <Typography>{props.children}</Typography>
-          </CardContent>
-        </div>
-      </StyledLink>
-    </StyledCard>
-  );
-};
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
+import { SiteHeader } from "./components/SiteHeader";
 
 export default function HomePage() {
   return (
     <>
-      <main>
-        <ThemeProviderWrapper>
-          <Container maxWidth="lg">
-            <Typography variant="h2">
-              React <span className="text-grape">Mini </span> Projects
-            </Typography>
-            <Grid container direction="row" spacing={2}>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <div className="relative mx-auto flex min-h-screen flex-col p-4">
+          <header className="sticky top-0 z-50 w-full">
+            <SiteHeader />
+          </header>
+
+          <main>
+            <h1 className="my-4 text-7xl">
+              React <span className="text-purple-500">Mini </span> Projects
+            </h1>
+            <div className="flex flex-wrap">
               {Object.keys(links).map((url) => (
-                <Grid key={url} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-                  <LinkCard key={url} href={url} heading={links[url]!.heading}>
-                    {links[url]!.synopsis}
-                  </LinkCard>
-                </Grid>
+                <Card key={url} className="w-[250px]">
+                  <CardHeader>
+                    <CardTitle>{links[url]!.heading}</CardTitle>
+                    <CardDescription>{links[url]!.synopsis}</CardDescription>
+                  </CardHeader>
+                  <CardFooter className="flex justify-end">
+                    <NextLink href={url}>View</NextLink>
+                  </CardFooter>
+                </Card>
               ))}
-            </Grid>
-          </Container>
-        </ThemeProviderWrapper>
-      </main>
+            </div>
+          </main>
+        </div>
+      </ThemeProvider>
     </>
   );
 }
