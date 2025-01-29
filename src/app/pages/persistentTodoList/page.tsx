@@ -1,9 +1,10 @@
 "use client";
 
 import { useTodoList } from "./useTodoList";
-import { Button } from "@mui/material";
+import { Trash } from "lucide-react";
+import { Button } from "~/components/ui/button";
+
 import { URLTextLink } from "@/components/URLTextLink";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { DemoPage } from "@/components";
 import { TodoForm, TodoFormValues } from "./TodoForm";
 import { useToast } from "~/hooks/use-toast";
@@ -34,26 +35,22 @@ const App = () => {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            {/* <div className> */}
-            {/* <Stack direction="row" spacing={1} useFlexGap> */}
             <h5>{todo.text}</h5>
             <Button
               color="error"
-              startIcon={<DeleteIcon />}
-              variant="contained"
+              variant="destructive"
               onClick={() => removeTodo(todo.id)}
             >
+              <Trash />
               Remove
             </Button>
             <Button
-              variant="outlined"
+              variant="outline"
               color="success"
               onClick={() => toggleTodo(todo.id)}
             >
               {todo.completed ? "Incomplete" : "Complete"}
             </Button>
-            {/* </Stack> */}
-            {/* </div> */}
           </li>
         ))}
       </ul>

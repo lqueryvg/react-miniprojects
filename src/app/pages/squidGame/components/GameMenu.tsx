@@ -1,22 +1,16 @@
-"use client";
-import { Scorecard, Outcome } from ".";
-import { Button, Stack } from "@mui/material";
+import { Button } from "~/components/ui/button";
 
-export type GameMenuProps = {
+export function GameMenu(props: {
   score: number;
   message: string;
   startGame: () => void;
-};
-
-export function GameMenu(props: GameMenuProps) {
+}) {
   return (
-    <Stack alignItems={"center"} gap={4}>
-      <Button onClick={props.startGame} variant="contained">
-        Start
-      </Button>
+    <div className="flex flex-col items-center">
+      <Button onClick={props.startGame}>Start</Button>
 
-      <Scorecard score={props.score} />
-      <Outcome>{props.message}</Outcome>
-    </Stack>
+      <h1>Score: {props.score}</h1>
+      <h1>{props.message}</h1>
+    </div>
   );
 }

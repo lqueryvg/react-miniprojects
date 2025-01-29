@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Timer, Scorecard, Box } from ".";
+import { Box } from ".";
 import { useToggleTimer, useCountdownTimer } from "../hooks";
-import { Stack } from "@mui/material";
 
 export type GameRunningProps = {
   gameOver: (score: number, message: string) => void;
@@ -30,10 +29,13 @@ export function GameRunning(props: GameRunningProps) {
   };
 
   return (
-    <Stack alignItems={"center"} gap={4}>
-      <Timer secondsRemaining={secondsRemaining} />
-      <Scorecard score={score} />
+    <div className="flex flex-col items-center">
+      {/* <Timer secondsRemaining={secondsRemaining} /> */}
+      <h4>Time left: {secondsRemaining}</h4>
+
+      <h1>Score: {score}</h1>
+      {/* <Scorecard score={score} /> */}
       <Box onClick={boxClicked} isgreen={isGreen} />
-    </Stack>
+    </div>
   );
 }

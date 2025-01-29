@@ -1,5 +1,6 @@
 "use client";
-import MUIBox from "@mui/material/Box";
+
+import { cn } from "~/lib/utils";
 
 type BoxProps = {
   isgreen: boolean;
@@ -7,16 +8,13 @@ type BoxProps = {
 };
 
 export const Box = (props: BoxProps) => {
-  const colour = props.isgreen ? "green" : "red";
+  const colour = props.isgreen ? "bg-green-500" : "bg-red-500";
   return (
-    <MUIBox
-      sx={{
-        width: 200,
-        height: 200,
-        borderRadius: 1,
-        bgcolor: colour,
-      }}
+    <div
+      className={cn("h-[200px] w-[200px] rounded", colour)}
       onClick={props.onClick}
-    />
+    >
+      {" "}
+    </div>
   );
 };
