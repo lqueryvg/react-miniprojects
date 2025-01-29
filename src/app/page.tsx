@@ -3,14 +3,11 @@ import { links } from "./links";
 import NextLink from "next/link";
 import { ThemeProvider } from "next-themes";
 import "~/styles/globals.css";
-
-// import { Inter } from "next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
+import { cn } from "~/lib/utils";
 
 import {
   Card,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
@@ -31,15 +28,26 @@ export default function HomePage() {
             </h1>
             <div className="flex flex-wrap">
               {Object.keys(links).map((url) => (
-                <Card key={url} className="w-[250px]">
-                  <CardHeader>
-                    <CardTitle>{links[url]!.heading}</CardTitle>
-                    <CardDescription>{links[url]!.synopsis}</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="flex justify-end">
-                    <NextLink href={url}>View</NextLink>
-                  </CardFooter>
-                </Card>
+                <NextLink
+                  key={url}
+                  href={url}
+                  className="block" // Ensures the link takes full width
+                >
+                  <Card
+                    className={cn(
+                      "w-[250px]", // Set width
+                      "h-[120px]", // Set width
+                      "transition-colors", // Add smooth color transition
+                      "hover:bg-accent/50", // Hover effect
+                      "cursor-pointer", // Show pointer cursor on hover
+                    )}
+                  >
+                    <CardHeader>
+                      <CardTitle>{links[url]!.heading}</CardTitle>
+                      <CardDescription>{links[url]!.synopsis}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                </NextLink>
               ))}
             </div>
           </main>

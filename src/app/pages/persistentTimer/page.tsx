@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { Typography } from "@mui/material";
 import { URLTextLink } from "@/components";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { DisplayTime } from "./components/DisplayTime";
@@ -42,10 +41,10 @@ const App = () => {
 export default function Wrapper() {
   const notelist = (
     <>
-      <Typography component="li">
+      <li>
         See:{" "}
         <URLTextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
-      </Typography>
+      </li>
     </>
   );
 
