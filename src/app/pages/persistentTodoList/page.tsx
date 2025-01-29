@@ -1,13 +1,12 @@
 "use client";
 
-import { useTodoList } from "./useTodoList";
 import { Trash } from "lucide-react";
 import { Button } from "@shadui/button";
-
-import { URLTextLink } from "@/components/URLTextLink";
-import { DemoPage } from "@/components";
-import { TodoForm, TodoFormValues } from "./TodoForm";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
+import { TextLink } from "~/app/_components/TextLink";
+import { DemoPage } from "~/app/_components";
+import { TodoForm, TodoFormValues } from "./TodoForm";
+import { useTodoList } from "./useTodoList";
 
 const App = () => {
   const { todos, addTodo, removeTodo, toggleTodo } = useTodoList();
@@ -18,6 +17,7 @@ const App = () => {
 
     if (!values.simulateSubmissionError) {
       addTodo(values.todoText);
+      return;
     }
 
     toast({
@@ -25,6 +25,7 @@ const App = () => {
       description: "This is a simulated error (because you checked the box).",
       variant: "destructive",
     });
+    throw new Error("Simulated error");
   }
 
   return (
@@ -63,7 +64,7 @@ export default function Wrapper() {
     <>
       <li>
         Credit:{" "}
-        <URLTextLink url="https://www.reacterry.com/portal/challenges/local-storage-3" />
+        <TextLink url="https://www.reacterry.com/portal/challenges/local-storage-3" />
       </li>
     </>
   );

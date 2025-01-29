@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { ThemeProvider } from "next-themes";
 import "~/styles/globals.css";
 import { Card, CardDescription, CardHeader, CardTitle } from "@shadui/card";
-import { SiteHeader } from "./components/SiteHeader";
+import { SiteHeader } from "./_components/SiteHeader";
 import { cn } from "~/lib/utils";
 
 export default function HomePage() {

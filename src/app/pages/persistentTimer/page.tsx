@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { URLTextLink } from "@/components";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { TextLink } from "~/app/_components";
+import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
 import { DisplayTime } from "./components/DisplayTime";
-import { DemoPage } from "@/components";
+import { DemoPage } from "~/app/_components";
 
 export const numberToString = (num: number) => {
   return num.toString().padStart(2, "0");
@@ -43,7 +43,7 @@ export default function Wrapper() {
     <>
       <li>
         See:{" "}
-        <URLTextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
+        <TextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
       </li>
     </>
   );

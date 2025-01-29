@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { GameMenu, GameRunning } from "./components";
-import { URLTextLink } from "@/components/URLTextLink";
-import { DemoPage } from "@/components";
+import { GameMenu } from "./components/GameMenu";
+import { GameRunning } from "./components/GameRunning";
+import { TextLink } from "~/app/_components/TextLink";
+import { DemoPage } from "~/app/_components";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -36,7 +37,7 @@ export default function Wrapper() {
     <>
       <li>
         See:{" "}
-        <URLTextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
+        <TextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
       </li>
     </>
   );

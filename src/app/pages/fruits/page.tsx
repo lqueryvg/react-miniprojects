@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { DemoPage } from "@/components";
+import { DemoPage } from "~/app/_components";
 
-import { URLTextLink } from "@/components/URLTextLink";
+import { TextLink } from "~/app/_components/TextLink";
 import { Input } from "@shadui/input";
 
 const App = () => {
@@ -64,7 +64,7 @@ export default function Wrapper() {
       <li>display a friendly message if no items match the search</li>
       <li>
         Credit:{" "}
-        <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s" />
+        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s" />
       </li>
     </>
   );

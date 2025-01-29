@@ -30,10 +30,12 @@ export const DemoPageReal = (props: {
 
         <main className="flex flex-col gap-10">
           <div className="mx-auto p-4">
-            <h1 className="mb-4 text-3xl font-bold">{link.heading}</h1>
-            {props.children}
-            <Separator className="my-4 h-1 text-background" />
-            <NoteList heading={props.heading}>{props.notelist}</NoteList>
+            <div className="flex flex-col items-center gap-10">
+              <h1 className="mb-4 text-3xl font-bold">{link.heading}</h1>
+              {props.children}
+              <Separator className="my-4 h-1 text-background" />
+              <NoteList heading={props.heading}>{props.notelist}</NoteList>
+            </div>
           </div>
         </main>
       </div>

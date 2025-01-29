@@ -1,5 +1,5 @@
 "use client";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
 
 type Todo = {
   id: string;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { URLTextLink } from "@/components/URLTextLink";
-import { DemoPage } from "@/components";
+import { TextLink } from "~/app/_components/TextLink";
+import { DemoPage } from "~/app/_components";
 import { Input } from "@shadui/input";
 
 const formatPhoneNumber = (value: string) => {
@@ -76,7 +76,7 @@ export default function Wrapper() {
       <li>editing the number should work as expected</li>
       <li>
         Credit:{" "}
-        <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
+        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
       </li>
     </>
   );

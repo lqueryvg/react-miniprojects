@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DemoPage } from "@/components";
-import { URLTextLink } from "@/components/URLTextLink";
+import { DemoPage } from "~/app/_components";
+import { TextLink } from "~/app/_components/TextLink";
 import { Input } from "@shadui/input";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
@@ -57,7 +57,7 @@ export default function Wrapper() {
       </li>
       <li>
         credit:{" "}
-        <URLTextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
+        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
       </li>
     </>
   );

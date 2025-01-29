@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import { Box } from ".";
-import { useToggleTimer, useCountdownTimer } from "../hooks";
+import { Box } from "./Box";
+import { useToggleTimer } from "../hooks/useToggleTimer";
+import { useCountdownTimer } from "../hooks/useCountdownTimer";
 
 export type GameRunningProps = {
   gameOver: (score: number, message: string) => void;

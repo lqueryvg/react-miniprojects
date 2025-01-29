@@ -1,4 +1,4 @@
-export const URLTextLink = (props: { url: string }) => {
+export const TextLink = (props: { url: string }) => {
   return (
     <a
       href={props.url}

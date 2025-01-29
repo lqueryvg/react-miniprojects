@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Button } from "@shadui/button";
 import { Avatar, AvatarFallback } from "@shadui/avatar";
-import { ThemeSwitcher } from "~/app/components/ThemeSwitcher";
+import { ThemeSwitcher } from "~/app/_components/ThemeSwitcher";
 
 export function SiteHeader() {
   return (
