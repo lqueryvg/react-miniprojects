@@ -29,6 +29,10 @@ export const links: Record<
     heading: "Phone Input",
     synopsis: "User types digits into phone input text field.",
   },
+  "/pages/typography": {
+    heading: "Typography",
+    synopsis: "Testing Typography prose.",
+  },
   "/pages/scratchpad": {
     heading: "Scratchpad",
     synopsis: "Work in progress experimental area.",
