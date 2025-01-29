@@ -4,7 +4,7 @@ import { useTodoList } from "./useTodoList";
 import { Button } from "@mui/material";
 import { URLTextLink } from "@/components/URLTextLink";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 import { TodoForm, TodoFormValues } from "./TodoForm";
 import { useToast } from "~/hooks/use-toast";
 
@@ -72,8 +72,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad href="/pages/persistentTodoList" notelist={notelist}>
+    <DemoPage href="/pages/persistentTodoList" notelist={notelist}>
       <App />
-    </DemoPageShad>
+    </DemoPage>
   );
 }

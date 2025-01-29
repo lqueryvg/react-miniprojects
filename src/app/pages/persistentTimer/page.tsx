@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { URLTextLink } from "@/components";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { DisplayTime } from "./components/DisplayTime";
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 
 export const numberToString = (num: number) => {
   return num.toString().padStart(2, "0");
@@ -49,8 +49,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad href="/pages/persistentTimer" notelist={notelist}>
+    <DemoPage href="/pages/persistentTimer" notelist={notelist}>
       <App />
-    </DemoPageShad>
+    </DemoPage>
   );
 }

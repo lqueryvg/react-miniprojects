@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 
 import { URLTextLink } from "@/components/URLTextLink";
 import { Input } from "~/components/ui/input";
@@ -70,12 +70,12 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad
+    <DemoPage
       href="/pages/fruits"
       notelist={notelist}
       heading="Functional Requirements"
     >
       <App />
-    </DemoPageShad>
+    </DemoPage>
   );
 }

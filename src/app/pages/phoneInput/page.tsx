@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { URLTextLink } from "@/components/URLTextLink";
 import { Code } from "@/components/Code";
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 import { Input } from "~/components/ui/input";
 
 const formatPhoneNumber = (value: string) => {
@@ -83,12 +83,12 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad
+    <DemoPage
       href="/pages/phoneInput"
       notelist={notelist}
       heading="Functional Requirements"
     >
       <PhoneNumberInput />
-    </DemoPageShad>
+    </DemoPage>
   );
 }

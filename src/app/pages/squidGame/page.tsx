@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { GameMenu, GameRunning } from "./components";
 import { URLTextLink } from "@/components/URLTextLink";
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -42,12 +42,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad
-      href="/pages/squidGame"
-      notelist={notelist}
-      heading="Objectives"
-    >
+    <DemoPage href="/pages/squidGame" notelist={notelist} heading="Objectives">
       <App />
-    </DemoPageShad>
+    </DemoPage>
   );
 }

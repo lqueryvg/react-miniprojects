@@ -1,6 +1,6 @@
 "use client";
 
-import { DemoPageShad } from "@/components";
+import { DemoPage } from "@/components";
 
 function App() {
   return (
@@ -35,12 +35,12 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageShad
+    <DemoPage
       href="/pages/scratchpad"
       notelist={notelist}
       heading="Functional Requirements"
     >
       <App />
-    </DemoPageShad>
+    </DemoPage>
   );
 }
