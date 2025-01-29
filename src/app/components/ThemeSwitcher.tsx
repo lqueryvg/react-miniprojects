@@ -4,13 +4,13 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { Button } from "~/lib/shadcn/components/ui/button";
+import { Button } from "@shadui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "~/lib/shadcn/components/ui/dropdown-menu";
+} from "@shadui/dropdown-menu";
 
 export function ThemeSwitcher() {
   const { setTheme } = useTheme();

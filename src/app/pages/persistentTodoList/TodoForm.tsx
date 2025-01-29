@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button } from "~/lib/shadcn/components/ui/button";
+import { Button } from "@shadui/button";
 import {
   Form,
   FormControl,
@@ -11,9 +11,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "~/lib/shadcn/components/ui/form";
-import { Input } from "~/lib/shadcn/components/ui/input";
-import { Checkbox } from "~/lib/shadcn/components/ui/checkbox";
+} from "@shadui/form";
+import { Input } from "@shadui/input";
+import { Checkbox } from "@shadui/checkbox";
 
 const formSchema = z.object({
   todoText: z.string().min(2).max(50),

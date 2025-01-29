@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { URLTextLink } from "@/components/URLTextLink";
 import { DemoPage } from "@/components";
-import { Input } from "~/lib/shadcn/components/ui/input";
+import { Input } from "@shadui/input";
 
 const formatPhoneNumber = (value: string) => {
   let formattedText = value.replace(/[^\d]/g, ""); // remove all non-digits

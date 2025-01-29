@@ -2,7 +2,7 @@
 
 import { useTodoList } from "./useTodoList";
 import { Trash } from "lucide-react";
-import { Button } from "~/lib/shadcn/components/ui/button";
+import { Button } from "@shadui/button";
 
 import { URLTextLink } from "@/components/URLTextLink";
 import { DemoPage } from "@/components";

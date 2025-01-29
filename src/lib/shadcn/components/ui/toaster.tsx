@@ -8,7 +8,7 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "~/lib/shadcn/components/ui/toast";
+} from "@shadui/toast";
 
 export function Toaster() {
   const { toasts } = useToast();

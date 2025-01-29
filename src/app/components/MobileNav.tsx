@@ -2,7 +2,7 @@
 
 import { Menu } from "lucide-react";
 
-import { Button } from "~/lib/shadcn/components/ui/button";
+import { Button } from "@shadui/button";
 import {
   Sheet,
   SheetContent,
@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "~/lib/shadcn/components/ui/sheet";
+} from "@shadui/sheet";
 import { VisuallyHidden } from "radix-ui";
 import { DocsSidebar } from "./DocsSidebar";
 

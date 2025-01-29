@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 
-import { Button } from "~/lib/shadcn/components/ui/button";
-import { Avatar, AvatarFallback } from "~/lib/shadcn/components/ui/avatar";
+import { Button } from "@shadui/button";
+import { Avatar, AvatarFallback } from "@shadui/avatar";
 import { ThemeSwitcher } from "~/app/components/ThemeSwitcher";
 
 export function SiteHeader() {

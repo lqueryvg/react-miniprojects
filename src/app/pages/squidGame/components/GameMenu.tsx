@@ -1,4 +1,4 @@
-import { Button } from "~/lib/shadcn/components/ui/button";
+import { Button } from "@shadui/button";
 
 export function GameMenu(props: {
   score: number;

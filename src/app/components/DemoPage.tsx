@@ -2,7 +2,7 @@ import { DemoPageReal } from "./DemoPageReal";
 import { ThemeProvider } from "next-themes";
 import "~/styles/globals.css";
 import { Inter } from "next/font/google";
-import { Toaster } from "~/lib/shadcn/components/ui/toaster";
+import { Toaster } from "@shadui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -3,15 +3,9 @@ import { links } from "./links";
 import NextLink from "next/link";
 import { ThemeProvider } from "next-themes";
 import "~/styles/globals.css";
-import { cn } from "~/lib/utils";
-
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "~/lib/shadcn/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@shadui/card";
 import { SiteHeader } from "./components/SiteHeader";
+import { cn } from "~/lib/utils";
 
 export default function HomePage() {
   return (

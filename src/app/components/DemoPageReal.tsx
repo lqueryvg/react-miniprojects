@@ -1,5 +1,5 @@
 import { links } from "../links";
-import { Separator } from "~/lib/shadcn/components/ui/separator";
+import { Separator } from "@shadui/separator";
 import { SiteHeader } from "./SiteHeader";
 import { MobileNav } from "./MobileNav";
 
