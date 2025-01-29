@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { DemoPage } from "@/components";
 import { URLTextLink } from "@/components/URLTextLink";
-import { Input } from "~/components/ui/input";
+import { Input } from "~/lib/shadcn/components/ui/input";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
   const [debouncedValue, setDebouncedValue] = useState("");

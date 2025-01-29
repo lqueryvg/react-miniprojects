@@ -10,7 +10,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
+} from "~/lib/shadcn/components/ui/card";
 import { SiteHeader } from "./components/SiteHeader";
 
 export default function HomePage() {
