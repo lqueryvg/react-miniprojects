@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Button } from "~/components/ui/button";
 import { Avatar, AvatarFallback } from "~/components/ui/avatar";
-import { ThemeSwitcher } from "~/components/theme-switcher";
+import { ThemeSwitcher } from "~/app/components/ThemeSwitcher";
 
 export function SiteHeader() {
   return (
