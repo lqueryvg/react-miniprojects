@@ -7,7 +7,7 @@ import { Button } from "~/lib/shadcn/components/ui/button";
 import { URLTextLink } from "@/components/URLTextLink";
 import { DemoPage } from "@/components";
 import { TodoForm, TodoFormValues } from "./TodoForm";
-import { useToast } from "~/hooks/use-toast";
+import { useToast } from "~/lib/shadcn/hooks/use-toast";
 
 const App = () => {
   const { todos, addTodo, removeTodo, toggleTodo } = useTodoList();
