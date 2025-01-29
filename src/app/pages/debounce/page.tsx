@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { DemoPage } from "@/components";
 import { URLTextLink } from "@/components/URLTextLink";
-import { Code } from "@/components/Code";
 import { Input } from "~/components/ui/input";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
@@ -47,14 +46,14 @@ export default function Wrapper() {
     <>
       {/* <li className="prose max-w-[screen-sm]"> */}
       <li>
-        creates a custom hook <Code inline>useDebounce()</Code> to debounce
-        values which change frequently
+        creates a custom hook <code>useDebounce()</code> to debounce values
+        which change frequently
       </li>
       <li>
         called as follows: <br />
-        <Code>
+        <pre>
           debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
-        </Code>
+        </pre>
       </li>
       <li>
         credit:{" "}

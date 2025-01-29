@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { URLTextLink } from "@/components/URLTextLink";
-import { Code } from "@/components/Code";
 import { DemoPage } from "@/components";
 import { Input } from "~/components/ui/input";
 
@@ -62,7 +61,7 @@ export default function Wrapper() {
   const notelist = (
     <>
       <li>
-        create <Code inline>PhoneNumberInput</Code> component
+        create <code>PhoneNumberInput</code> component
       </li>
       <li>user types digits into input text field</li>
       <li>enforce input of numerical digits only</li>
