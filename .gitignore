@@ -24,7 +24,8 @@ next-env.d.ts
 # misc
 .DS_Store
 *.pem
-tailwindDebug.css
+*.tmp
+*.tmp.*
 
 # debug
 npm-debug.log*
