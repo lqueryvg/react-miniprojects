@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { TextLink } from "~/app/_components";
 import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
+import { DemoPage } from "~/app/_components/DemoPage";
+import { TextLink } from "~/app/_components/TextLink";
 import { DisplayTime } from "./components/DisplayTime";
-import { DemoPage } from "~/app/_components";
 
 export const numberToString = (num: number) => {
   return num.toString().padStart(2, "0");

@@ -1,6 +1,6 @@
 "use client";
 
-import { DemoPage } from "~/app/_components";
+import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   return (

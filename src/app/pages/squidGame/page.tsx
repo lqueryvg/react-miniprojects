@@ -4,7 +4,7 @@ import { useState } from "react";
 import { GameMenu } from "./components/GameMenu";
 import { GameRunning } from "./components/GameRunning";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPage } from "~/app/_components";
+import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);

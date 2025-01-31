@@ -2,9 +2,11 @@
 
 import { Trash } from "lucide-react";
 import { Button } from "@shadui/button";
+import { Checkbox } from "@shadui/checkbox";
+import { Table, TableBody, TableCell, TableRow } from "@shadui/table";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPage } from "~/app/_components";
+import { DemoPage } from "~/app/_components/DemoPage";
 import { TodoForm, TodoFormValues } from "./TodoForm";
 import { useTodoList } from "./useTodoList";
 
@@ -33,28 +35,31 @@ const App = () => {
       <TodoForm onSubmit={handleSubmit} />
 
       {/* TODO list */}
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <h5>{todo.text}</h5>
-            <Button
-              color="error"
-              variant="destructive"
-              onClick={() => removeTodo(todo.id)}
-            >
-              <Trash />
-              Remove
-            </Button>
-            <Button
-              variant="outline"
-              color="success"
-              onClick={() => toggleTodo(todo.id)}
-            >
-              {todo.completed ? "Incomplete" : "Complete"}
-            </Button>
-          </li>
-        ))}
-      </ul>
+      <Table>
+        <TableBody>
+          {todos.map((todo) => (
+            <TableRow key={todo.id}>
+              <TableCell className="font-medium">
+                <Checkbox
+                  checked={todo.completed}
+                  onCheckedChange={() => toggleTodo(todo.id)}
+                ></Checkbox>
+              </TableCell>
+              <TableCell>{todo.text}</TableCell>
+              <TableCell className="text-right">
+                <Button
+                  color="error"
+                  variant="destructive"
+                  onClick={() => removeTodo(todo.id)}
+                >
+                  <Trash />
+                  Remove
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };
@@ -63,8 +68,11 @@ export default function Wrapper() {
   const notelist = (
     <>
       <li>
-        Credit:{" "}
-        <TextLink url="https://www.reacterry.com/portal/challenges/local-storage-3" />
+        Credit to:{" "}
+        <TextLink
+          url="https://www.reacterry.com/portal/challenges/local-storage-3"
+          text="reacterry.com"
+        />
       </li>
     </>
   );

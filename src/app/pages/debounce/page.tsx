@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DemoPage } from "~/app/_components";
-import { TextLink } from "~/app/_components/TextLink";
 import { Input } from "@shadui/input";
+import { DemoPage } from "~/app/_components/DemoPage";
+import { TextLink } from "~/app/_components/TextLink";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
   const [debouncedValue, setDebouncedValue] = useState("");

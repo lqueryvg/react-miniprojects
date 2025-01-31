@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { DemoPage } from "~/app/_components";
-
-import { TextLink } from "~/app/_components/TextLink";
 import { Input } from "@shadui/input";
+import { DemoPage } from "~/app/_components/DemoPage";
+import { TextLink } from "~/app/_components/TextLink";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -31,7 +30,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col">
       <Input
         type="text"
         placeholder="Type something..."
@@ -46,7 +45,9 @@ const App = () => {
             fruit.toLowerCase().includes(inputValue.toLowerCase()),
           )
           .map((fruit) => (
-            <h1 key={fruit}>{fruit}</h1>
+            <h1 className="text-center" key={fruit}>
+              {fruit}
+            </h1>
           ))}
       </div>
     </div>

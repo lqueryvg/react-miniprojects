@@ -17,10 +17,10 @@ export default function HomePage() {
           </header>
 
           <main>
-            <h1 className="my-4 text-7xl">
+            <h1 className="my-4 text-center text-7xl">
               React <span className="text-purple-500">Mini </span> Projects
             </h1>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
               {Object.keys(links).map((url) => (
                 <NextLink
                   key={url}
