@@ -14,7 +14,7 @@ const NoteList = (props: { heading?: string; children: React.ReactNode }) => {
 export const DemoPageReal = (props: {
   href: string;
   notelist: React.ReactNode;
-  heading?: string;
+  heading: string;
   children: React.ReactNode;
 }) => {
   const link = links[props.href]!;
@@ -24,7 +24,7 @@ export const DemoPageReal = (props: {
       <div className="relative flex min-h-screen flex-col">
         <header className="sticky top-0 z-50 w-full">
           <SiteHeader />
-          <MobileNav />
+          <MobileNav heading={link.heading} href={props.href} />
         </header>
 
         <main className="flex flex-col">

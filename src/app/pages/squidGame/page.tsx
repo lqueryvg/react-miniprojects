@@ -37,7 +37,10 @@ export default function Wrapper() {
     <>
       <li>
         See:{" "}
-        <TextLink url="https://www.reacterry.com/portal/challenges/timer-2" />
+        <TextLink
+          url="https://www.reacterry.com/portal/challenges/timer-2"
+          text="reacterry.com"
+        />
       </li>
     </>
   );

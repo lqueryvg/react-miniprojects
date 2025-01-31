@@ -45,15 +45,17 @@ const PhoneNumberInput = () => {
   };
 
   return (
-    <Input
-      type="text"
-      placeholder="Type something..."
-      value={textValue}
-      onChange={handleChange}
-      ref={inputRef}
-      className="mb-4"
-      maxLength={"(123) 456-7890123".length}
-    />
+    <div className="flex flex-col">
+      <Input
+        type="text"
+        placeholder="Type something..."
+        value={textValue}
+        onChange={handleChange}
+        ref={inputRef}
+        className="mb-4"
+        maxLength={"(123) 456-7890123".length}
+      />
+    </div>
   );
 };
 
@@ -76,7 +78,10 @@ export default function Wrapper() {
       <li>editing the number should work as expected</li>
       <li>
         Credit:{" "}
-        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
+        <TextLink
+          url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s"
+          text="youtube.com"
+        />
       </li>
     </>
   );

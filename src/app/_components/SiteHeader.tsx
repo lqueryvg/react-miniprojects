@@ -1,10 +1,10 @@
 "use client";
 
+import { Avatar, AvatarFallback } from "@shadui/avatar";
+import { ThemeSwitcher } from "~/app/_components/ThemeSwitcher";
 import Link from "next/link";
 
 import { Button } from "@shadui/button";
-import { Avatar, AvatarFallback } from "@shadui/avatar";
-import { ThemeSwitcher } from "~/app/_components/ThemeSwitcher";
 
 export function SiteHeader() {
   return (
@@ -29,9 +29,6 @@ export function SiteHeader() {
               <Link href="/components">Link 2</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/examples">Link 3</Link>
-            </Button>
-            <Button variant="ghost" size="sm" asChild>
               <Link href="https://github.com">
                 <svg
                   className="h-4 w-4"
@@ -44,12 +41,11 @@ export function SiteHeader() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
+            <ThemeSwitcher />
+            <Avatar className="h-8 w-8">
+              <AvatarFallback>Me</AvatarFallback>
+            </Avatar>
           </nav>
-          <ThemeSwitcher />
-
-          <Avatar className="h-8 w-8">
-            <AvatarFallback>Me</AvatarFallback>
-          </Avatar>
         </div>
       </div>
     </header>

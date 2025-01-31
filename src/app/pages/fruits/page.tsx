@@ -33,7 +33,7 @@ const App = () => {
     <div className="flex flex-col">
       <Input
         type="text"
-        placeholder="Type something..."
+        placeholder="Enter filter text..."
         value={inputValue}
         onChange={handleInputChange}
         className="mb-4"
@@ -65,7 +65,10 @@ export default function Wrapper() {
       <li>display a friendly message if no items match the search</li>
       <li>
         Credit:{" "}
-        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s" />
+        <TextLink
+          url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s"
+          text="youtube.com"
+        />
       </li>
     </>
   );
