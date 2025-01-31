@@ -15,8 +15,8 @@ function App() {
         All text on this page uses basic html tags with no{" "}
         <code>className</code>props. Except for the enclosing <code>div</code>{" "}
         which has
-        <code>className="prose dark:prose-invert"</code> and the coloured text
-        below.
+        <code>className=&quot;prose dark:prose-invert&quot;</code> and the
+        coloured text below.
       </p>
       <p>
         This paragraph contains a very long word to see how word wrap works with
@@ -56,8 +56,8 @@ function App() {
         <li>
           <code>blockquote</code> lines look like this:
           <blockquote>
-            "After all," he said, "everyone enjoys a good joke, so it's only
-            fair that they should pay for the privilege."
+            &quot;After all,&quot; he said, &quot;everyone enjoys a good joke,
+            so it&apos;s only fair that they should pay for the privilege.&quot;
           </blockquote>
         </li>
       </ul>
@@ -73,8 +73,8 @@ function App() {
         <table>
           <thead>
             <tr>
-              <th>King's Treasury</th>
-              <th>People's happiness</th>
+              <th>King&apos;s Treasury</th>
+              <th>People&apos;s happiness</th>
             </tr>
           </thead>
           <tbody>

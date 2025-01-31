@@ -34,7 +34,7 @@ function TodoForm(props: { onSubmit: (values: TodoFormValues) => void }) {
     try {
       props.onSubmit(values);
       form.resetField("todoText");
-    } catch (error) {
+    } catch (ignoreError) {
       form.setError("todoText", {
         type: "manual",
         message: "Submission failed",

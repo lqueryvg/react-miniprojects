@@ -7,7 +7,7 @@ import { Table, TableBody, TableCell, TableRow } from "@shadui/table";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
 import { TextLink } from "~/app/_components/TextLink";
 import { DemoPage } from "~/app/_components/DemoPage";
-import { TodoForm, TodoFormValues } from "./TodoForm";
+import { TodoForm, type TodoFormValues } from "./TodoForm";
 import { useTodoList } from "./useTodoList";
 
 const App = () => {
