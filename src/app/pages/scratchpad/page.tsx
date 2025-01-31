@@ -35,11 +35,7 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage
-      href="/pages/scratchpad"
-      notelist={notelist}
-      heading="Functional Requirements"
-    >
+    <DemoPage href="/pages/scratchpad" notelist={notelist}>
       <App />
     </DemoPage>
   );

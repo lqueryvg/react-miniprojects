@@ -46,7 +46,7 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage href="/pages/squidGame" notelist={notelist} heading="Objectives">
+    <DemoPage href="/pages/squidGame" notelist={notelist}>
       <App />
     </DemoPage>
   );

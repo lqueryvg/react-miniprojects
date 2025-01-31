@@ -87,11 +87,7 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage
-      href="/pages/phoneInput"
-      notelist={notelist}
-      heading="Functional Requirements"
-    >
+    <DemoPage href="/pages/phoneInput" notelist={notelist}>
       <PhoneNumberInput />
     </DemoPage>
   );

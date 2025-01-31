@@ -14,7 +14,6 @@ const NoteList = (props: { heading?: string; children: React.ReactNode }) => {
 export const DemoPageReal = (props: {
   href: string;
   notelist: React.ReactNode;
-  heading: string;
   children: React.ReactNode;
 }) => {
   const link = links[props.href]!;
@@ -32,10 +31,8 @@ export const DemoPageReal = (props: {
             <h1 className="mb-4 text-3xl font-bold">{link.heading}</h1>
             {props.children}
             <Separator className="my-4 h-1 text-background" />
-            <h2 className="mb-4 text-2xl font-bold">{props.heading}</h2>
-            <NoteList heading={props.heading ?? "Notes"}>
-              {props.notelist}
-            </NoteList>
+            <h2 className="mb-4 text-2xl font-bold">Features</h2>
+            <NoteList>{props.notelist}</NoteList>
           </div>
         </main>
       </div>

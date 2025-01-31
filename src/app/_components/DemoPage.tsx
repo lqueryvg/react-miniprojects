@@ -9,7 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const DemoPage = (props: {
   href: string;
   notelist: React.ReactNode;
-  heading?: string;
   children: React.ReactNode;
 }) => {
   return (
