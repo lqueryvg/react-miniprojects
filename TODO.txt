@@ -1,5 +1,9 @@
-[x] migrate all demo pages to shadcn
-[x] migrate root page to shadcn
-[x] remove MUI
-[x] use pre and code instead of Code
-[ ] fix editing bugs on phone number input
+# TODO
+
+- [x] use pre and code instead of Code
+- [x] fix editing bugs on phone number input
+- [x] deploy to vercel
+- [x] add small margin to Typography examples
+- [ ] add linting before deploy
+- [ ] add Zustand example
+- [ ] add Cypress

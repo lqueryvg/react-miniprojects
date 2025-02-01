@@ -4,7 +4,7 @@ import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose m-1 max-w-sm break-words dark:prose-invert md:max-w-lg">
       <h3>Customized Typography Example</h3>
       <p>
         This is a paragraph with{" "}
@@ -24,8 +24,6 @@ function App() {
     </div>
   );
 }
-
-// export default App;
 
 export default function Wrapper() {
   const notelist = (

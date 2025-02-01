@@ -4,7 +4,7 @@ import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose m-1 max-w-sm break-words dark:prose-invert md:max-w-lg">
       <h3>Typography Examples</h3>
       <p>
         This page demonstrates Shadcn Typography. Come here occasionally during
