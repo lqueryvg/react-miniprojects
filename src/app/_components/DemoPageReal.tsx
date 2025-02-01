@@ -28,7 +28,7 @@ export const DemoPageReal = (props: {
 
         <main className="flex flex-col">
           <div className="flex flex-col items-center">
-            <h1 className="mb-4 text-3xl font-bold">{link.heading}</h1>
+            <h1 className="mb-3 mt-3 text-3xl font-bold">{link.heading}</h1>
             {props.children}
             <Separator className="my-4 h-1 text-background" />
             <h2 className="mb-4 text-2xl font-bold">Features</h2>

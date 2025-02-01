@@ -28,7 +28,7 @@ const App = () => {
       <div className="min-w-[60ch] max-w-[300px] flex-1">
         <Input
           type="text"
-          placeholder="type a string..."
+          placeholder="real keyboard only, type some characters, then wait"
           value={textValue}
           onChange={(e) => setTextValue(e.target.value)}
           className="mb-4"
@@ -44,7 +44,10 @@ const App = () => {
 export default function Wrapper() {
   const notelist = (
     <>
-      {/* <li className="prose max-w-[screen-sm]"> */}
+      <li>
+        <em>Note: this demo is not expected to work on mobile</em>
+      </li>
+      <li>debounce frequently changing values</li>
       <li>
         creates a custom hook <code>useDebounce()</code> to debounce values
         which change frequently
