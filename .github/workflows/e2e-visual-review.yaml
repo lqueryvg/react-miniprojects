@@ -30,10 +30,6 @@ jobs:
       - name: Install Dependencies
         run: npm install -g pnpm && pnpm install
 
-      # - name: Copy .env.example files
-      #   shell: bash
-      #   run: find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${1%.*}"' _ {} \;
-
       - name: Typecheck
         run: pnpm typecheck
 
@@ -57,18 +53,6 @@ jobs:
         run: |
           SANITIZED=$(echo "${{ steps.branch-name.outputs.branch_name }}" | tr '/' '-' | tr '_' '-' | tr ' ' '-' | sed 's/[^a-zA-Z0-9-]//g')
           echo "sanitized_branch=$SANITIZED" >> $GITHUB_OUTPUT
-
-      # - name: Detect associated PR
-      #   id: detect-pr
-      #   run: |
-      #     if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-      #       echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
-      #     else
-      #       PR_NUMBER=$(gh pr list --head "${{ steps.branch-name.outputs.branch_name }}" --json number --jq '.[0].number')
-      #       echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
-      #     fi
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Detect associated PR (Enhanced)
         id: detect-pr

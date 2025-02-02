@@ -4,6 +4,6 @@
 - [x] fix editing bugs on phone number input
 - [x] deploy to vercel
 - [x] add small margin to Typography examples
-- [ ] add linting before deploy
+- [x] add linting before deploy
+- [x] add Cypress
 - [ ] add Zustand example
-- [ ] add Cypress

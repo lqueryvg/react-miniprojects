@@ -9,15 +9,16 @@ Some features:
 - nextjs
 - tailwind
 - shadcn
+- deploys to Vercel
+- cypress e2e tests (minimal for demo purposes)
 - works on mobile
 - responsive layout
 - debounce example
-- persistence examples (localstorage custom hook)
+- persistence examples (localstorage)
 - dark theme switcher
-- deploys to Vercel
+- e2e tests in github actions workflow
+- screenshots in pull request
 
 Todo:
 
-- [ ] CI/CD workflow
-- [ ] e2e testing
 - [ ] Zustand example
