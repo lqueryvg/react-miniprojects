@@ -1,0 +1,199 @@
+name: E2E Visual Review
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pr-comment-${{ github.event.pull_request.number || github.ref_name }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    outputs:
+      sanitized_branch: ${{ steps.sanitize-branch.outputs.sanitized_branch }}
+      pr_number: ${{ steps.detect-pr.outputs.pr_number }}
+    steps:
+      - name: Checkout branch code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Install Dependencies
+        run: npm install -g pnpm && pnpm install
+
+      # - name: Copy .env.example files
+      #   shell: bash
+      #   run: find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${1%.*}"' _ {} \;
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Run E2E tests
+        run: pnpm run e2e
+
+      - name: Get branch name
+        id: branch-name
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "branch_name=${{ github.event.pull_request.head.ref }}" >> $GITHUB_OUTPUT
+          else
+            echo "branch_name=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sanitize branch name
+        id: sanitize-branch
+        run: |
+          SANITIZED=$(echo "${{ steps.branch-name.outputs.branch_name }}" | tr '/' '-' | tr '_' '-' | tr ' ' '-' | sed 's/[^a-zA-Z0-9-]//g')
+          echo "sanitized_branch=$SANITIZED" >> $GITHUB_OUTPUT
+
+      # - name: Detect associated PR
+      #   id: detect-pr
+      #   run: |
+      #     if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+      #       echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+      #     else
+      #       PR_NUMBER=$(gh pr list --head "${{ steps.branch-name.outputs.branch_name }}" --json number --jq '.[0].number')
+      #       echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+      #     fi
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detect associated PR (Enhanced)
+        id: detect-pr
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "pr_number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+            echo "Using direct PR number: ${{ github.event.pull_request.number }}"
+          else
+            BRANCH_NAME="${{ steps.branch-name.outputs.branch_name }}"
+            echo "Checking for PRs associated with branch: $BRANCH_NAME"
+            
+            # Use GitHub API directly for better reliability
+            PR_DATA=$(curl -s \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls?head=${{ github.repository_owner }}:$BRANCH_NAME&state=open")
+            
+            PR_NUMBER=$(echo "$PR_DATA" | jq -r '.[0].number // empty')
+            
+            if [ -z "$PR_NUMBER" ]; then
+              echo "No open PR found for branch"
+              echo "pr_number=" >> $GITHUB_OUTPUT
+            else
+              echo "Found PR number: $PR_NUMBER"
+              echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Prepare branch screenshots
+        if: ${{ steps.detect-pr.outputs.pr_number != '' }}
+        run: |
+          SCREENSHOT_DIR="screenshots/${{ steps.sanitize-branch.outputs.sanitized_branch }}"
+          mkdir -p ./gh-pages/$SCREENSHOT_DIR
+          cp -r ./cypress/screenshots/* ./gh-pages/$SCREENSHOT_DIR/
+          (cd ./gh-pages/$SCREENSHOT_DIR/; find .) > filenames.txt
+
+      - name: Add branch metadata
+        if: ${{ steps.detect-pr.outputs.pr_number != '' }}
+        run: |
+          echo "${{ steps.branch-name.outputs.branch_name }}" > ./gh-pages/$SCREENSHOT_DIR/.branchinfo
+          date +%s > ./gh-pages/$SCREENSHOT_DIR/.timestamp
+
+      - name: Publish to GitHub Pages
+        if: ${{ steps.detect-pr.outputs.pr_number != '' }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
+          keep_files: true
+
+      - name: Cache filenames
+        if: ${{ steps.detect-pr.outputs.pr_number != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.sanitize-branch.outputs.sanitized_branch }}-screenshots
+          path: filenames.txt
+
+  comment:
+    needs: e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve filenames
+        if: ${{ needs.e2e.outputs.pr_number != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.e2e.outputs.sanitized_branch }}-screenshots
+
+      - name: Debug
+        id: detect-pr
+        run: |
+          cat filenames.txt
+
+      - name: Post visual review comment
+        if: ${{ needs.e2e.outputs.pr_number != '' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const branch = "${{ needs.e2e.outputs.sanitized_branch }}";
+            const prNumber = ${{ needs.e2e.outputs.pr_number }};
+            const commentMarker = `<!-- GH_ACTION_SCREENSHOTS_${branch} -->`;
+
+            try {
+              const filenames = fs.readFileSync('filenames.txt', 'utf8')
+                .split('\n')
+                .filter(name => name.endsWith('.png') || name.endsWith('.jpg'));
+              
+              console.log({filenames});
+
+              const baseUrl = `https://${owner}.github.io/${repo}/screenshots/${branch}/`;
+              
+              let body = `## Visual Changes for \`${branch}\`\n`;
+              filenames.forEach(name => {
+                body += `### ${name}\n`;
+                body += `<img src="${baseUrl}${encodeURIComponent(name)}" width="400" />\n\n`;
+              });
+
+              // Check for existing comment
+              const { data: comments } = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number: prNumber
+              });
+
+              const existingComment = comments.find(c => c.body.includes(commentMarker));
+
+              if (existingComment) {
+                // Update existing comment
+                await github.rest.issues.updateComment({
+                  owner,
+                  repo,
+                  comment_id: existingComment.id,
+                  body: body + '\n' + commentMarker
+                });
+              } else {
+                // Create new comment
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: prNumber,
+                  body: body + '\n' + commentMarker
+                });
+              }
+
+            } catch (error) {
+              core.error('Failed to post comment: ' + error.message);
+            }
