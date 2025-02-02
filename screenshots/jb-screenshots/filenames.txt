@@ -1,0 +1,5 @@
+.
+./test.cy.ts
+./test.cy.ts/basic test -- dark mode.png
+./test.cy.ts/basic test -- light mode.png
+./filenames.txt
