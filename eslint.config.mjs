@@ -20,7 +20,7 @@ const config = [
     "plugin:@typescript-eslint/stylistic-type-checked",
   ),
   {
-    ignores: [".next/*", "node_modules/*"],
+    ignores: [".next/*", "node_modules/*", "**/*.js"],
   },
   {
     plugins: {

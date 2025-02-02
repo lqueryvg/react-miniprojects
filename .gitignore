@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/cypress/screenshots/
 
 # database
 /prisma/db.sqlite
@@ -26,6 +27,8 @@ next-env.d.ts
 *.pem
 *.tmp
 *.tmp.*
+*.gitignore
+*-
 
 # debug
 npm-debug.log*

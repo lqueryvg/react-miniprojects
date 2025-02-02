@@ -13,11 +13,7 @@
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
     /* Bundled projects */
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ES2022"
-    ],
+    "lib": ["dom", "dom.iterable", "ES2022"],
     "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -31,32 +27,24 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/*"
-      ],
-      "@/*": [
-        "./src/app/*"
-      ],
-      "@shadcn/*": [
-        "./src/lib/shadcn/*"
-      ],
-      "@shadui/*": [
-        "./src/lib/shadcn/components/ui/*"
-      ]
+      "~/*": ["./src/*"],
+      "@/*": ["./src/app/*"],
+      "@shadcn/*": ["./src/lib/shadcn/*"],
+      "@shadui/*": ["./src/lib/shadcn/components/ui/*"]
     }
   },
   "include": [
+    "./*.ts",
+    "./*.js",
     "**/*.cjs",
-    "**/*.js",
-    "**/*.ts",
+    "src/**/*.ts",
     "**/*.tsx",
     ".eslintrc.cjs",
     "eslint.config.mjs",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "cypress/e2e/**/*.ts",
+    "cypress/support/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".next"
-  ]
+  "exclude": ["**/*.js", "node_modules", ".next", "cypress/e2e.gitignore"]
 }

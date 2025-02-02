@@ -7,10 +7,14 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
+    "dev:e2e": "next dev -p 8080",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "tailwindDebug": "pnpm exec tailwindcss -o tailwindDebug.tmp.css",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "e2e": "start-server-and-test dev:e2e http://localhost:8080 cypress:run"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.1.1",
@@ -47,12 +51,14 @@
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
+    "cypress": "^14.0.1",
     "eslint": "^9.19.0",
     "eslint-config-next": "^15.1.6",
     "next": "^15.1.6",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
+    "start-server-and-test": "^2.0.10",
     "tailwindcss": "^3.4.14",
     "tailwindcss-debug-screens": "^2.2.1",
     "typescript": "^5.7.3"
