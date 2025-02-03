@@ -29,7 +29,7 @@ export function SiteHeader() {
               <Link href="/components">Link 2</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="https://github.com">
+              <Link href="https://github.com/lqueryvg/react-miniprojects">
                 <svg
                   className="h-4 w-4"
                   viewBox="0 0 24 24"

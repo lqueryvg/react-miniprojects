@@ -33,6 +33,10 @@ export const links: Record<
     heading: "Typography",
     synopsis: "Testing Typography prose.",
   },
+  "/pages/zustand": {
+    heading: "Zustand Shop",
+    synopsis: "Share state between child components",
+  },
   "/pages/scratchpad": {
     heading: "Scratchpad",
     synopsis: "Work in progress experimental area.",
