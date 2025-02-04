@@ -14,7 +14,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <div className="h-6 w-6 rounded-lg">R</div>
-            <span className="hidden font-bold sm:inline-block">
+            <span className="invisible font-bold md:visible">
               React Mini Projects
             </span>
           </Link>

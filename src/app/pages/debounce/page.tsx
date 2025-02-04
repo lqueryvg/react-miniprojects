@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      <div className="min-w-[60ch] max-w-[300px] flex-1">
+      <div>
         <Input
           type="text"
           placeholder="real keyboard only, type some characters, then wait"
@@ -33,7 +33,7 @@ const App = () => {
           onChange={(e) => setTextValue(e.target.value)}
           className="mb-4"
         />
-        <p className="mb-4 w-full min-w-3.5 text-muted-foreground">
+        <p className="mb-4 w-full text-muted-foreground">
           Debounced value: {debouncedValue}
         </p>
       </div>
@@ -44,10 +44,13 @@ const App = () => {
 export default function Wrapper() {
   const notelist = (
     <>
-      <li>
-        <em>Note: this demo is not expected to work on mobile</em>
-      </li>
       <li>debounce frequently changing values</li>
+      <li>
+        <em>
+          Note: this demo makes little sense on mobile, since characters are not
+          rapidly entered into the text input field
+        </em>
+      </li>
       <li>
         creates a custom hook <code>useDebounce()</code> to debounce values
         which change frequently

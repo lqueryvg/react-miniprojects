@@ -26,14 +26,14 @@ export const DemoPageReal = (props: {
           <MobileNav heading={link.heading} href={props.href} />
         </header>
 
-        <main className="flex flex-col">
-          <div className="flex flex-col items-center">
-            <h1 className="mb-3 mt-3 text-3xl font-bold">{link.heading}</h1>
-            {props.children}
-            <Separator className="my-4 h-1 text-background" />
-            <h2 className="mb-4 text-2xl font-bold">Features</h2>
-            <NoteList>{props.notelist}</NoteList>
-          </div>
+        <main className="px-2 md:mx-auto">
+          <h1 className="mb-3 mt-3 text-center text-3xl font-bold">
+            {link.heading}
+          </h1>
+          {props.children}
+          <Separator className="my-4 h-1 text-background" />
+          <h2 className="mb-4 text-2xl font-bold">Features</h2>
+          <NoteList>{props.notelist}</NoteList>
         </main>
       </div>
     </>

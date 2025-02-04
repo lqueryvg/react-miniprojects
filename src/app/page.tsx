@@ -11,12 +11,12 @@ export default function HomePage() {
   return (
     <>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <div className="relative mx-auto flex min-h-screen flex-col p-4">
+        <div className="relative mx-auto flex min-h-screen flex-col">
           <header className="sticky top-0 z-50 w-full">
             <SiteHeader />
           </header>
 
-          <main>
+          <main className="px-4">
             <h1 className="my-4 text-center text-7xl">
               React <span className="text-purple-500">Mini </span> Projects
             </h1>
