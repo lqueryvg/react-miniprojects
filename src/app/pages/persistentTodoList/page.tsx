@@ -6,7 +6,7 @@ import { Checkbox } from "@shadui/checkbox";
 import { Table, TableBody, TableCell, TableRow } from "@shadui/table";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPage } from "~/app/_components/DemoPage";
+import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
 import { TodoForm, type TodoFormValues } from "./TodoForm";
 import { useTodoList } from "./useTodoList";
 
@@ -78,8 +78,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage href="/pages/persistentTodoList" notelist={notelist}>
+    <DemoPageWrapper href="/pages/persistentTodoList" notelist={notelist}>
       <App />
-    </DemoPage>
+    </DemoPageWrapper>
   );
 }

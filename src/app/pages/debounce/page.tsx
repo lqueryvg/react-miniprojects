@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Input } from "@shadui/input";
-import { DemoPage } from "~/app/_components/DemoPage";
+import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
 import { TextLink } from "~/app/_components/TextLink";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
@@ -28,7 +28,7 @@ const App = () => {
       <div>
         <Input
           type="text"
-          placeholder="real keyboard only, type some characters, then wait"
+          placeholder="type then wait"
           value={textValue}
           onChange={(e) => setTextValue(e.target.value)}
           className="mb-4"
@@ -47,8 +47,8 @@ export default function Wrapper() {
       <li>debounce frequently changing values</li>
       <li>
         <em>
-          Note: this demo makes little sense on mobile, since characters are not
-          rapidly entered into the text input field
+          Note: this demo makes little sense on mobile - with no
+          keyboard -since characters are not entered rapidly
         </em>
       </li>
       <li>
@@ -68,8 +68,8 @@ export default function Wrapper() {
     </>
   );
   return (
-    <DemoPage href="/pages/debounce" notelist={notelist}>
+    <DemoPageWrapper href="/pages/debounce" notelist={notelist}>
       <App />
-    </DemoPage>
+    </DemoPageWrapper>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
-import { DemoPage } from "~/app/_components/DemoPage";
+import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
 import { TextLink } from "~/app/_components/TextLink";
 import { DisplayTime } from "./components/DisplayTime";
 
@@ -52,8 +52,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPage href="/pages/persistentTimer" notelist={notelist}>
+    <DemoPageWrapper href="/pages/persistentTimer" notelist={notelist}>
       <App />
-    </DemoPage>
+    </DemoPageWrapper>
   );
 }
