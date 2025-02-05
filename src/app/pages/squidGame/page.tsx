@@ -35,10 +35,14 @@ function App() {
 export default function Wrapper() {
   const notelist = (
     <>
+      <li>box randomly toggles between green and red</li>
+      <li>goal is to click 15 times on the green box within 15 seconds</li>
+      <li>if the player clicks red, they lose</li>
+      <li>each colour is displayed between 1 and 2 seconds</li>
       <li>
-        See:{" "}
+        Credit:{" "}
         <TextLink
-          url="https://www.reacterry.com/portal/challenges/timer-2"
+          url="https://www.reacterry.com/portal/challenges/green-light--red-light"
           text="reacterry.com"
         />
       </li>
