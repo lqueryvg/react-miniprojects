@@ -1,41 +1,71 @@
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+
+const sections = [
+  {
+    title: "Technologies",
+    links: [
+      { name: "Tailwind", href: "https://v3.tailwindcss.com" },
+      { name: "shadcn/ui", href: "https://ui.shadcn.com/" },
+      { name: "NextJS", href: "https://nextjs.org/" },
+      { name: "React", href: "https://react.dev" },
+      { name: "Typescript", href: "https://www.typescriptlang.org/" },
+      { name: "Github Actions", href: "#" },
+      { name: "Cypress", href: "https://www.cypress.io/" },
+      { name: "Vercel", href: "https://vercel.com/" },
+    ],
+  },
+];
+
 export const Footer = () => {
   return (
-    <footer className="mx-2 mt-16 text-sm leading-6">
-      <div className="w-full border-t border-slate-200 pb-28 pt-10 text-slate-500 dark:border-slate-200/5">
-        <p>Copyright © John Buxton</p>
-        <div className="mt-10 justify-end space-x-5 text-slate-400 dark:text-slate-500 sm:flex">
-          <a
-            href="https://v3.tailwindcss.com/"
-            className="hover:text-slate-500 dark:hover:text-slate-400"
-          >
-            Tailwind
-          </a>
-          <a
-            href="https://react.dev/"
-            className="hover:text-slate-500 dark:hover:text-slate-400"
-          >
-            React
-          </a>
-          <a
-            href="https://nextjs.org/"
-            className="hover:text-slate-500 dark:hover:text-slate-400"
-          >
-            Next.js
-          </a>
-          <a
-            href="https://www.typescriptlang.org/"
-            className="hover:text-slate-500 dark:hover:text-slate-400"
-          >
-            TypeScript
-          </a>
-          <a
-            href="https://ui.shadcn.com/"
-            className="hover:text-slate-500 dark:hover:text-slate-400"
-          >
-            shadcn/ui
-          </a>
-        </div>
+    <section className="py-32">
+      <div className="container">
+        <footer>
+          <div className="flex flex-col items-center justify-between gap-10 border-t pt-36 text-center">
+            <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6">
+              <div>
+                <p className="text-3xl font-semibold">React Mini Projects</p>
+                <p className="mt-6 text-sm text-muted-foreground">
+                  A small personal project exploring various React related
+                  technologies.
+                </p>
+              </div>
+              <ul className="flex items-center space-x-6 text-muted-foreground">
+                <li className="font-medium hover:text-primary">
+                  <a href="https://www.linkedin.com/in/johnbuxton/">
+                    <FaLinkedin className="size-6" />
+                  </a>
+                </li>
+                <li className="font-medium hover:text-primary">
+                  <a href="https://github.com/lqueryvg">
+                    <FaGithub className="size-6" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="grid grid-cols-1 gap-6 lg:gap-20">
+              {sections.map((section, sectionIdx) => (
+                <div key={sectionIdx}>
+                  <h3 className="mb-6 font-bold">{section.title}</h3>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    {section.links.map((link, linkIdx) => (
+                      <li
+                        key={linkIdx}
+                        className="font-medium hover:text-primary"
+                      >
+                        <a href={link.href}>{link.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
+            <p>© 2025 John Buxton. All rights reserved.</p>
+          </div>
+        </footer>
       </div>
-    </footer>
+    </section>
   );
 };

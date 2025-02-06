@@ -1,4 +1,3 @@
-// "use client";
 import { links } from "./links";
 import NextLink from "next/link";
 import { ThemeProvider } from "next-themes";
