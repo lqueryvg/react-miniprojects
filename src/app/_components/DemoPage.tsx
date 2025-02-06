@@ -4,14 +4,6 @@ import { SiteHeader } from "./SiteHeader";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { Footer } from "./Footer";
 
-const NoteList = (props: { heading?: string; children: React.ReactNode }) => {
-  return (
-    <div className="prose dark:prose-invert">
-      <ul>{props.children}</ul>
-    </div>
-  );
-};
-
 export const DemoPage = (props: {
   href: string;
   notelist: React.ReactNode;
@@ -34,7 +26,9 @@ export const DemoPage = (props: {
           {props.children}
           <Separator className="my-4 h-1 text-background" />
           <h2 className="mb-4 justify-center text-center text-2xl">Features</h2>
-          <NoteList>{props.notelist}</NoteList>
+          <div className="prose dark:prose-invert">
+            <ul>{props.notelist}</ul>
+          </div>
         </main>
         <Footer />
       </div>

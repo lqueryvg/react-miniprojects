@@ -1,15 +1,12 @@
 "use client";
 
-import { Trash } from "lucide-react";
-import { Button } from "@shadui/button";
-import { Checkbox } from "@shadui/checkbox";
 import { Toaster } from "@shadui/toaster";
-import { Table, TableBody, TableCell, TableRow } from "@shadui/table";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
 import { TextLink } from "~/app/_components/TextLink";
 import { DemoPage } from "~/app/_components/DemoPage";
 import { TodoForm, type TodoFormValues } from "./TodoForm";
 import { useTodoList } from "./useTodoList";
+import { TodoList } from "./TodoList";
 
 const App = () => {
   const { todos, addTodo, removeTodo, toggleTodo } = useTodoList();
@@ -34,35 +31,8 @@ const App = () => {
   return (
     <div className="flex flex-col items-center">
       <Toaster />
-
       <TodoForm onSubmit={handleSubmit} />
-
-      {/* TODO list */}
-      <Table>
-        <TableBody>
-          {todos.map((todo) => (
-            <TableRow key={todo.id}>
-              <TableCell className="font-medium">
-                <Checkbox
-                  checked={todo.completed}
-                  onCheckedChange={() => toggleTodo(todo.id)}
-                ></Checkbox>
-              </TableCell>
-              <TableCell>{todo.text}</TableCell>
-              <TableCell className="text-right">
-                <Button
-                  color="error"
-                  variant="destructive"
-                  onClick={() => removeTodo(todo.id)}
-                >
-                  <Trash />
-                  Remove
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>
   );
 };
@@ -70,6 +40,10 @@ const App = () => {
 export default function Wrapper() {
   const notelist = (
     <>
+      <li>
+        todo list is stored in browser local storage: it is shared between tabs
+        and will persist after the tab is closed and re-opened
+      </li>
       <li>
         Credit to:{" "}
         <TextLink

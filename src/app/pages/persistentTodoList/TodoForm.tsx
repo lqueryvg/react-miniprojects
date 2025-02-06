@@ -21,7 +21,9 @@ const formSchema = z.object({
 
 type TodoFormValues = z.infer<typeof formSchema>;
 
-function TodoForm(props: { onSubmit: (values: TodoFormValues) => void }) {
+export const TodoForm = (props: {
+  onSubmit: (values: TodoFormValues) => void;
+}) => {
   const form = useForm<TodoFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -87,7 +89,6 @@ function TodoForm(props: { onSubmit: (values: TodoFormValues) => void }) {
       </form>
     </Form>
   );
-}
+};
 
-export { TodoForm };
 export type { TodoFormValues };

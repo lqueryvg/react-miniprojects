@@ -1,7 +1,7 @@
 "use client";
 import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
 
-type Todo = {
+export type Todo = {
   id: string;
   text: string;
   completed: boolean;
