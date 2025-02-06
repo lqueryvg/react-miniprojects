@@ -11,22 +11,27 @@ function App() {
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("Press Start to Play");
 
-  const startGame = () => {
+  const handleStartGame = () => {
     setIsRunning(true);
   };
 
-  const gameOver = (score: number, message: string) => {
-    setScore(score);
+  const handleGameOver = (score: number, message: string) => {
+    console.log("gameOver():)", { score, message, isRunning });
     setMessage(message);
+    setScore(score);
     setIsRunning(false);
   };
 
   return (
     <>
       {isRunning ? (
-        <GameRunning gameOver={gameOver} />
+        <GameRunning onGameOver={handleGameOver} targetScore={15} />
       ) : (
-        <GameMenu startGame={startGame} score={score} message={message} />
+        <GameMenu
+          onStartGame={handleStartGame}
+          score={score}
+          message={message}
+        />
       )}
     </>
   );
