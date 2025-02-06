@@ -5,6 +5,7 @@ import "~/styles/globals.css";
 import { Card, CardDescription, CardHeader, CardTitle } from "@shadui/card";
 import { SiteHeader } from "./_components/SiteHeader";
 import { cn } from "~/lib/utils";
+import { Footer } from "./_components/Footer";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,12 @@ export default function HomePage() {
             <h1 className="my-4 text-center text-7xl">
               React <span className="text-purple-500">Mini </span> Projects
             </h1>
+            <p className="mb-4 text-center">
+              A platform for me to explore various React and related
+              technologies, from coding through to CI/CD deployment and testing.
+              (Github link is at top of page.)
+            </p>
+            <p className="mb-4 text-center">More useful to me than you :-)</p>
             <div className="flex flex-wrap justify-center">
               {Object.keys(links).map((url) => (
                 <NextLink
@@ -44,6 +51,7 @@ export default function HomePage() {
               ))}
             </div>
           </main>
+          <Footer></Footer>
         </div>
       </ThemeProvider>
     </>

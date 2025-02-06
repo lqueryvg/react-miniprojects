@@ -3,6 +3,7 @@
 - small projects exploring React and related technologies
 - created originally using `create-t3-app`
 - tech stack at time of writing this page is: Next.js, Tailwind, Shadcn, Vercel
+- deployed here: <https://react-miniprojects.vercel.app/>
 
 Some features:
 
@@ -14,11 +15,8 @@ Some features:
 - works on mobile
 - responsive layout
 - debounce example
+- zustand example
 - persistence examples (localstorage)
 - dark theme switcher
 - e2e tests in github actions workflow
 - screenshots in pull request
-
-Todo:
-
-- [ ] Zustand example

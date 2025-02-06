@@ -1,9 +1,0 @@
-# TODO
-
-- [x] use pre and code instead of Code
-- [x] fix editing bugs on phone number input
-- [x] deploy to vercel
-- [x] add small margin to Typography examples
-- [x] add linting before deploy
-- [x] add Cypress
-- [ ] add Zustand example

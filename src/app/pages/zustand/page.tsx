@@ -1,6 +1,7 @@
 import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
 import { Products } from "./Products";
 import { Basket } from "./Basket";
+import { TextLink } from "~/app/_components/TextLink";
 
 const Shop = () => {
   return (
@@ -22,6 +23,19 @@ export default function Wrapper() {
         <code>{"<Shop>"}</code>
       </li>
       <li>
+        only <code>{"<Basket>"}</code> re-renders when the basket changes
+        <ul>
+          <li>
+            to see this, enable{" "}
+            <em>{"Highlight updates when components render"}</em> in{" "}
+            <TextLink
+              url="https://react.dev/learn/react-developer-tools"
+              text="React Dev Tools"
+            />
+          </li>
+        </ul>
+      </li>
+      <li>
         both access Zustand state called <code>{"BasketStore"}</code>{" "}
       </li>
       <li>
@@ -30,14 +44,6 @@ export default function Wrapper() {
       </li>
       <li>
         <code>{"<Shop>"}</code> has no access to the store
-      </li>
-      <li>
-        only <code>{"<Basket>"}</code> re-renders when the basket changes
-      </li>
-      <li>
-        to see this, enable{" "}
-        <em>{"Highlight updates when components render"}</em> in{" "}
-        <strong>React Dev Tools</strong>
       </li>
       <li>
         <code>{"<Products>"}</code> avoids unnecessary renders by only

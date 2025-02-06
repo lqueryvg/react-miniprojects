@@ -23,7 +23,11 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end gap-4">
           <nav className="flex items-center gap-2">
             <Button variant="ghost" size="sm" asChild>
-              <Link href="https://github.com/lqueryvg/react-miniprojects">
+              <Link
+                href="https://github.com/lqueryvg/react-miniprojects"
+                target="_blank" // Open in new tab
+                rel="noopener noreferrer" // Security best practice for target="_blank"
+              >
                 <FaGithub className="size-6" />
                 <span className="sr-only">GitHub</span>
               </Link>

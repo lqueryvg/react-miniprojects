@@ -2,14 +2,17 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const sections = [
   {
-    title: "Technologies",
+    title: "Technologies Used",
     links: [
       { name: "Tailwind", href: "https://v3.tailwindcss.com" },
       { name: "shadcn/ui", href: "https://ui.shadcn.com/" },
       { name: "NextJS", href: "https://nextjs.org/" },
       { name: "React", href: "https://react.dev" },
       { name: "Typescript", href: "https://www.typescriptlang.org/" },
-      { name: "Github Actions", href: "#" },
+      {
+        name: "Github Actions",
+        href: "https://github.com/lqueryvg/react-miniprojects/actions",
+      },
       { name: "Cypress", href: "https://www.cypress.io/" },
       { name: "Vercel", href: "https://vercel.com/" },
     ],
@@ -18,7 +21,7 @@ const sections = [
 
 export const Footer = () => {
   return (
-    <section className="py-32">
+    <section className="pb-6 pt-64">
       <div className="container">
         <footer>
           <div className="flex flex-col items-center justify-between gap-10 border-t pt-36 text-center">
