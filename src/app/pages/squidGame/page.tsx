@@ -4,7 +4,7 @@ import { useState } from "react";
 import { GameMenu } from "./components/GameMenu";
 import { GameRunning } from "./components/GameRunning";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -55,8 +55,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/squidGame" notelist={notelist}>
+    <DemoPage href="/pages/squidGame" notelist={notelist}>
       <App />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }

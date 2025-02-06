@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Input } from "@shadui/input";
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 import { TextLink } from "~/app/_components/TextLink";
 
 const App = () => {
@@ -74,8 +74,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/fruits" notelist={notelist}>
+    <DemoPage href="/pages/fruits" notelist={notelist}>
       <App />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 import { Input } from "@shadui/input";
 
 const formatPhoneNumber = (value: string) => {
@@ -87,8 +87,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/phoneInput" notelist={notelist}>
+    <DemoPage href="/pages/phoneInput" notelist={notelist}>
       <PhoneNumberInput />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }

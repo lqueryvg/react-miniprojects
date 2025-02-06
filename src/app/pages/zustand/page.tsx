@@ -1,4 +1,4 @@
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 import { Products } from "./Products";
 import { Basket } from "./Basket";
 import { TextLink } from "~/app/_components/TextLink";
@@ -56,8 +56,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/zustand" notelist={notelist}>
+    <DemoPage href="/pages/zustand" notelist={notelist}>
       <Shop />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }

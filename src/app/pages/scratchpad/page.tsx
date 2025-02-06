@@ -1,6 +1,6 @@
 "use client";
 
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 
 function App() {
   return (
@@ -33,8 +33,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/scratchpad" notelist={notelist}>
+    <DemoPage href="/pages/scratchpad" notelist={notelist}>
       <App />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }

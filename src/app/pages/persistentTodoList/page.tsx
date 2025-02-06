@@ -3,10 +3,11 @@
 import { Trash } from "lucide-react";
 import { Button } from "@shadui/button";
 import { Checkbox } from "@shadui/checkbox";
+import { Toaster } from "@shadui/toaster";
 import { Table, TableBody, TableCell, TableRow } from "@shadui/table";
 import { useToast } from "~/lib/shadcn/hooks/use-toast";
 import { TextLink } from "~/app/_components/TextLink";
-import { DemoPageWrapper } from "~/app/_components/DemoPageWrapper";
+import { DemoPage } from "~/app/_components/DemoPage";
 import { TodoForm, type TodoFormValues } from "./TodoForm";
 import { useTodoList } from "./useTodoList";
 
@@ -32,6 +33,8 @@ const App = () => {
 
   return (
     <div className="flex flex-col items-center">
+      <Toaster />
+
       <TodoForm onSubmit={handleSubmit} />
 
       {/* TODO list */}
@@ -78,8 +81,8 @@ export default function Wrapper() {
   );
 
   return (
-    <DemoPageWrapper href="/pages/persistentTodoList" notelist={notelist}>
+    <DemoPage href="/pages/persistentTodoList" notelist={notelist}>
       <App />
-    </DemoPageWrapper>
+    </DemoPage>
   );
 }
