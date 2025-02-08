@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { GameMenu } from "./components/GameMenu";
 import { GameRunning } from "./components/GameRunning";
-import { TextLink } from "~/app/_components/TextLink";
 import { DemoPage } from "~/app/_components/DemoPage";
+import Notes from "./notes.mdx";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -38,24 +38,8 @@ function App() {
 }
 
 export default function Wrapper() {
-  const notelist = (
-    <>
-      <li>box randomly toggles between green and red</li>
-      <li>goal is to click 15 times on the green box within 15 seconds</li>
-      <li>if the player clicks red, they lose</li>
-      <li>each colour is displayed between 1 and 2 seconds</li>
-      <li>
-        Credit:{" "}
-        <TextLink
-          url="https://www.reacterry.com/portal/challenges/green-light--red-light"
-          text="reacterry.com"
-        />
-      </li>
-    </>
-  );
-
   return (
-    <DemoPage href="/pages/squidGame" notelist={notelist}>
+    <DemoPage href="/pages/squidGame" notelist={<Notes />}>
       <App />
     </DemoPage>
   );

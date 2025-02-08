@@ -100,7 +100,7 @@ function App() {
 export default function Wrapper() {
   const notelist = (
     <>
-      <li>testing tailwind prose</li>
+      <li>testing tailwind prose without MDX</li>
     </>
   );
 

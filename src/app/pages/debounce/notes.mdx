@@ -1,0 +1,12 @@
+import { TextLink } from "~/app/_components/TextLink";
+
+- debounce frequently changing values
+- _Note: this demo makes little sense on mobile (with no keyboard) since characters are submitted to the input field in batches_
+- creates a custom hook `useDebounce()` to debounce values which change frequently
+- called as follows:
+
+```
+debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
+```
+
+- credit: <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />

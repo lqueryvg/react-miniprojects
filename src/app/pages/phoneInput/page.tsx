@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { TextLink } from "~/app/_components/TextLink";
 import { DemoPage } from "~/app/_components/DemoPage";
 import { Input } from "@shadui/input";
+import Notes from "./notes.mdx";
 
 const formatPhoneNumber = (value: string) => {
   let formattedText = value.replace(/[^\d]/g, ""); // remove all non-digits
@@ -48,7 +48,7 @@ const PhoneNumberInput = () => {
     <div className="flex flex-col">
       <Input
         type="text"
-        placeholder="Type something..."
+        placeholder="Type digits..."
         value={textValue}
         onChange={handleChange}
         ref={inputRef}
@@ -60,34 +60,8 @@ const PhoneNumberInput = () => {
 };
 
 export default function Wrapper() {
-  const notelist = (
-    <>
-      <li>
-        create <code>PhoneNumberInput</code> component
-      </li>
-      <li>user types digits into input text field</li>
-      <li>enforce input of numerical digits only</li>
-      <li>13 digits max</li>
-      <li>
-        automatic formatting:
-        <ul>
-          <li>add parens around first 3 digits</li>
-          <li>insert a dash after 6th digit</li>
-        </ul>
-      </li>
-      <li>editing the number should work as expected</li>
-      <li>
-        Credit:{" "}
-        <TextLink
-          url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s"
-          text="youtube.com"
-        />
-      </li>
-    </>
-  );
-
   return (
-    <DemoPage href="/pages/phoneInput" notelist={notelist}>
+    <DemoPage href="/pages/phoneInput" notelist={<Notes />}>
       <PhoneNumberInput />
     </DemoPage>
   );

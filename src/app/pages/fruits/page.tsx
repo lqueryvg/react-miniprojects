@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Input } from "@shadui/input";
 import { DemoPage } from "~/app/_components/DemoPage";
-import { TextLink } from "~/app/_components/TextLink";
+import Notes from "./notes.mdx";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -55,26 +55,8 @@ const App = () => {
 };
 
 export default function Wrapper() {
-  const notelist = (
-    <>
-      <li>display a list of fruits</li>
-      <li>
-        as the user types, display only those items that match the search term
-      </li>
-      <li>the list should update as soon as the user types</li>
-      <li>display a friendly message if no items match the search</li>
-      <li>
-        Credit:{" "}
-        <TextLink
-          url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=225s"
-          text="youtube.com"
-        />
-      </li>
-    </>
-  );
-
   return (
-    <DemoPage href="/pages/fruits" notelist={notelist}>
+    <DemoPage href="/pages/fruits" notelist={<Notes />}>
       <App />
     </DemoPage>
   );

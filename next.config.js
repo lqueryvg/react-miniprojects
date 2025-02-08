@@ -3,14 +3,22 @@
  * for Docker builds.
  */
 await import("./src/env.js");
+import createMDX from "@next/mdx";
 
 /** @type {import("next").NextConfig} */
-const config = {
+const nextConfig = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
+    // only do this when you have linting elsewhere in the pipeline
     ignoreDuringBuilds: true,
   },
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-export default config;
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig);

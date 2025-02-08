@@ -1,0 +1,18 @@
+import { TextLink } from "~/app/_components/TextLink";
+
+- `<Products>` and `<Basket>` are child siblings of `<Shop>`
+- `<Products>` adds items, `<Basket>` reads and removes items
+- both access Zustand state called `BasketStore`{" "}
+- only `<Basket>` re-renders when the basket changes
+  - to see this, enable _Highlight updates when components render_ in
+    {" "}
+    <TextLink
+      url="https://react.dev/learn/react-developer-tools"
+      text="React Dev Tools"
+    />
+- `<Shop>` has no access to the store
+- `<Products>` avoids unnecessary renders by only subscribing to
+  the specific part of the store that it needs, i.e.
+  ```
+  const addToBasket = useBasketStore((state) => state.addToBasket);
+  ```

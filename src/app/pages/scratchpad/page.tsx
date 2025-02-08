@@ -29,6 +29,7 @@ export default function Wrapper() {
   const notelist = (
     <>
       <li>testing tailwind prose</li>
+      <li>uses HTML, not MDX</li>
     </>
   );
 

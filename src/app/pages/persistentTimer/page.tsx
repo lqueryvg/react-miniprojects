@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import { useLocalStorage } from "~/app/_hooks/useLocalStorage";
 import { DemoPage } from "~/app/_components/DemoPage";
-import { TextLink } from "~/app/_components/TextLink";
 import { DisplayTime } from "./components/DisplayTime";
+import Notes from "./notes.mdx";
 
 export const numberToString = (num: number) => {
   return num.toString().padStart(2, "0");
@@ -39,20 +39,8 @@ const App = () => {
 };
 
 export default function Wrapper() {
-  const notelist = (
-    <>
-      <li>
-        See:{" "}
-        <TextLink
-          url="https://www.reacterry.com/portal/challenges/timer-2"
-          text="reacterry.com"
-        />
-      </li>
-    </>
-  );
-
   return (
-    <DemoPage href="/pages/persistentTimer" notelist={notelist}>
+    <DemoPage href="/pages/persistentTimer" notelist={<Notes />}>
       <App />
     </DemoPage>
   );

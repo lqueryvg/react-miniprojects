@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Input } from "@shadui/input";
 import { DemoPage } from "~/app/_components/DemoPage";
-import { TextLink } from "~/app/_components/TextLink";
+import Notes from "./notes.mdx";
 
 const useDebounce = (valueToBeDebounced: string, delayMilliseconds: number) => {
   const [debouncedValue, setDebouncedValue] = useState("");
@@ -42,33 +42,8 @@ const App = () => {
 };
 
 export default function Wrapper() {
-  const notelist = (
-    <>
-      <li>debounce frequently changing values</li>
-      <li>
-        <em>
-          Note: this demo makes little sense on mobile (with no keyboard) since
-          characters are submitted to the input field in batches
-        </em>
-      </li>
-      <li>
-        creates a custom hook <code>useDebounce()</code> to debounce values
-        which change frequently
-      </li>
-      <li>
-        called as follows: <br />
-        <pre>
-          debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
-        </pre>
-      </li>
-      <li>
-        credit:{" "}
-        <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
-      </li>
-    </>
-  );
   return (
-    <DemoPage href="/pages/debounce" notelist={notelist}>
+    <DemoPage href="/pages/debounce" notelist={<Notes />}>
       <App />
     </DemoPage>
   );

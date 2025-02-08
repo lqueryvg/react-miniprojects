@@ -88,6 +88,15 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            p: {
+              "@apply break-words": "",
+            },
+          },
+        },
+      },
     },
   },
   // plugins: [require("tailwindcss-animate")],

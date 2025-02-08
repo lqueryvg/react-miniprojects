@@ -41,4 +41,8 @@ export const links: Record<
     heading: "Scratchpad",
     synopsis: "Work in progress experimental area.",
   },
+  "/pages/mdx": {
+    heading: "MDX test",
+    synopsis: "Display content from an .mdx file.",
+  },
 };
