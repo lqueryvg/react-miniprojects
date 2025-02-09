@@ -1,16 +1,45 @@
-- These notes are written in MDX
+This text demonstrates MDX rendered using styles from Shadcn's Typography. I
+come here occasionally during development to check how the theme looks. This
+long paragraph demonstrates word wrapping.
+
 - This is some **bold** and _italics_ text.
+- `span` with a `className`can be used to colour text
+  <span className="text-purple-500">like this </span>
+- `code` looks like `this`
+- `strong` (bold) looks like <strong>this</strong>
+- `em` (emphasis) looks like <em>this</em>
+- `a` links look like <a href="#">this</a>
+- numbered list:
 
-This is a list in markdown:
+  1. One
+  1. Two
+  1. Three
 
-- One
-- Two
-- Three
+- This paragraph contains a very long word to see what happens to
+  veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery
+  long words.
 
-This paragraph contains a very long word to see how word wrap works with
-veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery
-long words.
+- `pre` (preformatted) lines look like this:
 
-```
-debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
-```
+  ```
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      todoText: "",
+      simulateSubmissionError: false,
+    },
+  });
+  ```
+
+- Scrollable preformatted block:
+
+  ```
+  This paragraph contains a very long word to see how word wrap works with
+  veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery
+  long words.
+  ```
+
+- `blockquote` lines look like this:
+
+  > "After all", he said, "everyone enjoys a good joke, so it's only fair that
+  > they should pay for the privilege."

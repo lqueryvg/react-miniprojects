@@ -1,14 +1,12 @@
-import Notes from "./notes.mdx";
+"use client";
+
 import { DemoPage } from "~/app/_components/DemoPage";
+import Notes from "./notes.mdx";
 
-const App = () => {
+export default function Wrapper() {
   return (
-    <>
-      <DemoPage href="/pages/mdx" notelist={<Notes />}>
-        <div className="prose dark:prose-invert">Some text</div>
-      </DemoPage>
-    </>
+    <DemoPage href="/pages/mdx">
+      <Notes />
+    </DemoPage>
   );
-};
-
-export default App;
+}

@@ -5,9 +5,9 @@ export const HeroText = () => {
         React <span className="text-purple-500">Mini </span> Projects
       </h1>
       <p className="mb-4 text-center">
-        A platform for me to explore various React and related technologies,
-        from coding through to CI/CD deployment and testing. (Github link is at
-        top of page.)
+        A set of small demos and exercises exploring React and related
+        technologies, from coding through to CI/CD deployment and testing.
+        (Github link is at top of page.)
       </p>
       <p className="mb-4 text-center">More useful to me than you :-)</p>
     </>

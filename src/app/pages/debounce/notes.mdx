@@ -1,12 +1,30 @@
 import { TextLink } from "~/app/_components/TextLink";
+import { App } from "./App";
 
-- debounce frequently changing values
-- _Note: this demo makes little sense on mobile (with no keyboard) since characters are submitted to the input field in batches_
-- creates a custom hook `useDebounce()` to debounce values which change frequently
-- called as follows:
+"Debouncing" limits how often a function executes. In web UIs, it's used for
+rapid-fire events like typing or resizing. Instead of running the function with
+every event, it waits until the events stop for a set time, then runs it once.
+This prevents excessive processing and improves performance.
+
+## Exercise
+
+- create a custom hook `useDebounce()` which can be used to debounce a values
+  which changes frequently
+- the hook should be called as follows:
 
 ```
-debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds)
+debouncedValue = useDebounce(valueToBeDebounced, delayMilliseconds);
 ```
 
-- credit: <TextLink url="https://www.youtube.com/watch?v=CAsTwrYx8pM&t=742s" />
+- demonstrate the hook with a text input field and an output of the debounced
+  value
+
+## Example
+
+Below is an example where the "debounced" value is not displayed until the user
+stops typing.
+
+_Note: this demo makes little sense on mobile (with no keyboard) since
+characters are submitted to the input field in batches_
+
+<App />

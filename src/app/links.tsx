@@ -21,9 +21,9 @@ export const links: Record<
     heading: "Debounce",
     synopsis: "Debounce a text input value which changes frequently.",
   },
-  "/pages/fruits": {
-    heading: "Fruits",
-    synopsis: "Filter a list of fruits by typing text.",
+  "/pages/inputFilter": {
+    heading: "Input Filter",
+    synopsis: "Filter a list of items by typing text.",
   },
   "/pages/squidGame": {
     heading: "Squid Game",
@@ -33,16 +33,8 @@ export const links: Record<
     heading: "Persistent Timer",
     synopsis: "A timer persisted in local storage.",
   },
-  "/pages/typography": {
-    heading: "Typography",
-    synopsis: "Testing Typography prose.",
-  },
-  "/pages/scratchpad": {
-    heading: "Scratchpad",
-    synopsis: "Work in progress experimental area.",
-  },
   "/pages/mdx": {
-    heading: "MDX test",
+    heading: "MDX",
     synopsis: "Display content from an .mdx file.",
   },
 };

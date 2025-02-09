@@ -1,7 +1,20 @@
 import { TextLink } from "~/app/_components/TextLink";
+import { App } from "./App";
 
-- todo list is stored in browser local storage: it is shared between tabs and will persist after the tab is closed and re-opened
-- credit: <TextLink
-    url="https://www.reacterry.com/portal/challenges/local-storage-3"
-    text="reacterry.com"
-  />
+## Exercise
+
+- create a todo list which is stored in browser local storage, i.e. it is shared
+  between tabs and will persist after the tab or browser is closed and re-opened
+- display a text input field with an "add" button to enable the user to add new
+  items
+- use a form to ensure the user enters at least 2 characters
+- duplicates should be allowed
+- display a list of items in the todo list
+  - display a checkbox and a remove button beside each items allowing the user
+    to either mark them as completed or delete them
+- provide a checkbox to allow the user to simulate errors when adding items
+- simulated errors should result in a toast message
+
+## Example
+
+<App />

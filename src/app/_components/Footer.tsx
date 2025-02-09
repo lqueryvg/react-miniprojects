@@ -15,6 +15,7 @@ const sections = [
       },
       { name: "Cypress", href: "https://www.cypress.io/" },
       { name: "Vercel", href: "https://vercel.com/" },
+      { name: "MDX", href: "https://mdxjs.com/" },
     ],
   },
 ];
