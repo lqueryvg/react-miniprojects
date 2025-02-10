@@ -1,4 +1,5 @@
 "use client";
+import { usePageMatter } from "~/lib/pageMatter/hooks";
 
 import {
   Breadcrumb,
@@ -9,7 +10,9 @@ import {
   BreadcrumbSeparator,
 } from "@shadui//breadcrumb";
 
-export function Breadcrumbs(props: { heading: string; href: string }) {
+export function Breadcrumbs() {
+  const page = usePageMatter();
+
   return (
     <div className="flex h-14 items-center border-b bg-background/95 px-2 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Breadcrumb>
@@ -19,7 +22,7 @@ export function Breadcrumbs(props: { heading: string; href: string }) {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{props.heading}</BreadcrumbPage>
+            <BreadcrumbPage>{page?.title}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

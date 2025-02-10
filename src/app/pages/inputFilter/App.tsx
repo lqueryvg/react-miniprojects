@@ -25,7 +25,6 @@ export const App = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     setInputValue(input);
-    console.log(input);
   };
 
   const filteredFruits = fruits.filter((fruit) =>

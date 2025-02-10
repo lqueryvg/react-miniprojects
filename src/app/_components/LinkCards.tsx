@@ -1,15 +1,17 @@
+"use client";
 import NextLink from "next/link";
-import { links } from "../links";
 import { Card, CardDescription, CardHeader, CardTitle } from "@shadui/card";
 import { cn } from "~/lib/utils";
+import { usePageMatterIndex } from "~/lib/pageMatter/hooks";
 
 export const LinkCards = () => {
+  const { pages } = usePageMatterIndex();
   return (
     <div className="flex flex-wrap justify-center">
-      {Object.keys(links).map((url) => (
+      {Object.values(pages!).map((page) => (
         <NextLink
-          key={url}
-          href={url}
+          key={page.slug}
+          href={page.slug}
           className="block" // Ensures the link takes full width
         >
           <Card
@@ -22,8 +24,8 @@ export const LinkCards = () => {
             )}
           >
             <CardHeader>
-              <CardTitle>{links[url]!.heading}</CardTitle>
-              <CardDescription>{links[url]!.synopsis}</CardDescription>
+              <CardTitle>{page.title}</CardTitle>
+              <CardDescription>{page.synopsis}</CardDescription>
             </CardHeader>
           </Card>
         </NextLink>

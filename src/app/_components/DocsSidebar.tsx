@@ -1,27 +1,28 @@
 "use client";
+import { usePageMatterIndex } from "~/lib/pageMatter/hooks";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/utils";
-import { links } from "@/links";
 
 export function DocsSidebar() {
   const pathname = usePathname();
+  const { pages } = usePageMatterIndex();
 
   return (
     <div className="w-full overflow-y-auto">
       <div className="grid grid-flow-row auto-rows-max text-sm">
-        {Object.keys(links).map((url) => (
-          <div key={url}>
+        {Object.values(pages!).map((page) => (
+          <div key={page.slug}>
             <Link
-              href={url}
+              href={page.slug}
               className={cn(
                 "flex w-full items-center rounded-md p-2 hover:underline",
-                url === pathname && "font-medium text-primary",
+                page.slug === pathname && "font-medium text-primary",
               )}
             >
-              {url === pathname && "*"}
-              {links[url]!.heading}
+              {page.slug === pathname && "* "}
+              {page.title}
             </Link>
           </div>
         ))}
