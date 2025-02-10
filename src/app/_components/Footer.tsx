@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const sections = [
   {
-    title: "Technologies Used",
+    title: "Technologies",
     links: [
       { name: "Tailwind", href: "https://v3.tailwindcss.com" },
       { name: "shadcn/ui", href: "https://ui.shadcn.com/" },
@@ -30,7 +30,7 @@ export const Footer = () => {
               <div>
                 <p className="text-3xl font-semibold">React Mini Projects</p>
                 <p className="mt-6 text-sm text-muted-foreground">
-                  A small personal project exploring various React related
+                  A small personal project exploring React and related
                   technologies.
                 </p>
               </div>

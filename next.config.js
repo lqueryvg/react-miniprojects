@@ -4,20 +4,23 @@
  */
 await import("./src/env.js");
 import createMDX from "@next/mdx";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMDXFrontmatter from "remark-mdx-frontmatter";
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    // only do this when you have linting elsewhere in the pipeline
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // WARNING: assumes linting is elsewhere in  pipeline
   },
+
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [remarkFrontmatter, remarkMDXFrontmatter],
+    rehypePlugins: [],
+  },
 });
 
 // Merge MDX config with Next.js config
