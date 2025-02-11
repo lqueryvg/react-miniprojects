@@ -4,7 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { Input } from "@shadui/input";
 import { getNewValueAndCursorPosition } from "./helpers";
 
+function useForceUpdate() {
+  const [, setToggle] = useState(false);
+  return () => setToggle((prev) => !prev);
+}
+
 export const App = () => {
+  const forceUpdate = useForceUpdate();
   const [textValue, setTextValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const [cursorPosition, setCursorPosition] = useState(0);
@@ -14,7 +20,7 @@ export const App = () => {
     if (inputRef.current) {
       inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
     }
-  }, [textValue, cursorPosition]);
+  }, [textValue, cursorPosition, forceUpdate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const unformattedPhoneNumber = e.target.value;
@@ -23,6 +29,21 @@ export const App = () => {
     const { formattedPhoneNumber, newCursorPosition } =
       getNewValueAndCursorPosition(unformattedPhoneNumber, oldCursorPosition);
 
+    if (
+      textValue === formattedPhoneNumber &&
+      cursorPosition === newCursorPosition
+    ) {
+      // The user entered only non-digit characters which when stripped out
+      // means the neither the formatted value nor the new computed cursor
+      // position changed. But we still need to force an
+      // update to put the cursor position back in the previous position
+      // otherwise it will jump to the end of the input field.
+      // Setting the state of those values to the same values as before
+      // will not trigger the useEffect() so we use the useForceUpdate()
+      // toggle to force the cursor to be put back.
+      forceUpdate();
+      return;
+    }
     setTextValue(formattedPhoneNumber);
     setCursorPosition(newCursorPosition);
   };
