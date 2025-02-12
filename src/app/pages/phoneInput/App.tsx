@@ -23,16 +23,25 @@ export const App = () => {
   }, [textValue, cursorPosition, forceUpdate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const unformattedPhoneNumber = e.target.value;
-    const oldCursorPosition = e.target.selectionStart!;
+    const eventTextField = e.target.value;
+    const eventCursorPosition = e.target.selectionStart!;
 
     const { formattedPhoneNumber, newCursorPosition } =
-      getNewValueAndCursorPosition(unformattedPhoneNumber, oldCursorPosition);
+      getNewValueAndCursorPosition(eventTextField, eventCursorPosition);
+
+    // console.log("state:", debugField(textValue, cursorPosition));
+    // console.log("event:", debugField(eventTextField, eventCursorPosition));
+    // console.log(
+    //   "formatted:",
+    //   debugField(formattedPhoneNumber, newCursorPosition),
+    // );
 
     if (
       textValue === formattedPhoneNumber &&
-      cursorPosition === newCursorPosition
+      eventTextField.length > formattedPhoneNumber.length
     ) {
+      setCursorPosition(eventCursorPosition - 1);
+      forceUpdate();
       // The user entered only non-digit characters which when stripped out
       // means the neither the formatted value nor the new computed cursor
       // position changed. But we still need to force an
@@ -41,9 +50,9 @@ export const App = () => {
       // Setting the state of those values to the same values as before
       // will not trigger the useEffect() so we use the useForceUpdate()
       // toggle to force the cursor to be put back.
-      forceUpdate();
       return;
     }
+
     setTextValue(formattedPhoneNumber);
     setCursorPosition(newCursorPosition);
   };

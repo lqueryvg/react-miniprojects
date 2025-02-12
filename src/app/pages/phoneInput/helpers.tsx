@@ -61,3 +61,7 @@ export const getNewValueAndCursorPosition = (
   );
   return { formattedPhoneNumber, newCursorPosition };
 };
+
+export const debugField = (field: string, cursorPosition: number) => {
+  return `${field.slice(0, cursorPosition)}|${field.slice(cursorPosition)}`;
+};
