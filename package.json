@@ -52,6 +52,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.19.0",
+    "@shikijs/colorized-brackets": "^2.3.2",
     "@tailwindcss/typography": "^0.5.16",
     "@types/eslint": "^8.56.12",
     "@types/eslint__eslintrc": "^2.1.2",

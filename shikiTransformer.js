@@ -1,6 +1,7 @@
 // Adds syntax highlighting to fenced code blocks in mdx files
 
 import { createHighlighter } from "shiki";
+import { transformerColorizedBrackets } from "@shikijs/colorized-brackets";
 
 const highlighter = await createHighlighter({
   langs: ["typescript", "javascript", "jsx", "tsx", "css", "html"],
@@ -18,6 +19,7 @@ async function visit(tree) {
         node.value = highlighter.codeToHtml(node.value, {
           lang,
           theme,
+          transformers: [transformerColorizedBrackets()],
         });
       } catch (e) {
         console.warn(`Shiki highlighting failed for language '${lang}': ${e}`);

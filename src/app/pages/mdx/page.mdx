@@ -27,13 +27,15 @@ long paragraph demonstrates word wrapping.
 - `pre` (preformatted) lines look like this:
 
   ```typescript
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      todoText: "",
-      simulateSubmissionError: false,
-    },
+  type X = "A" | "B" | "C";
+  import { createHighlighter } from "shiki";
+  import { transformerColorizedBrackets } from "@shikijs/colorized-brackets";
+
+  const highlighter = await createHighlighter({
+    langs: ["typescript", "javascript", "jsx", "tsx", "css", "html"],
+    themes: [],
   });
+  await highlighter.loadTheme("github-dark");
   ```
 
 - Scrollable preformatted block:

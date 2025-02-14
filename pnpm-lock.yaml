@@ -108,6 +108,9 @@ importers:
       '@eslint/js':
         specifier: ^9.19.0
         version: 9.19.0
+      '@shikijs/colorized-brackets':
+        specifier: ^2.3.2
+        version: 2.3.2
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@3.4.17)
@@ -1265,6 +1268,9 @@ packages:
 
   '@rushstack/eslint-patch@1.10.4':
     resolution: {integrity: sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==}
+
+  '@shikijs/colorized-brackets@2.3.2':
+    resolution: {integrity: sha512-N7oyiLbSHkPm+SzOUg8k+Tj1yRebmKkYKJTObMCD+cG86Z1MmjAN13BeQ2TG1iQlRj++X1p1OS+MK+zHnArEIg==}
 
   '@shikijs/core@2.3.2':
     resolution: {integrity: sha512-s7vyL3LzUKm3Qwf36zRWlavX9BQMZTIq9B1almM63M5xBuSldnsTHCmsXzoF/Kyw4k7Xgas7yAyJz9VR/vcP1A==}
@@ -4945,6 +4951,10 @@ snapshots:
   '@rtsao/scc@1.1.0': {}
 
   '@rushstack/eslint-patch@1.10.4': {}
+
+  '@shikijs/colorized-brackets@2.3.2':
+    dependencies:
+      shiki: 2.3.2
 
   '@shikijs/core@2.3.2':
     dependencies:
