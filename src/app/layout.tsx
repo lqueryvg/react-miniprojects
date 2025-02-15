@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 import "~/styles/globals.css";
 import { getPageMatterIndex } from "~/lib/pageMatter/getIndex";
 import { PageMatterProvider } from "~/lib/pageMatter/context";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "React Mini Projects",
@@ -31,6 +32,7 @@ export default async function RootLayout({
               <div>{children}</div>
             </PageMatterProvider>
           </div>
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
