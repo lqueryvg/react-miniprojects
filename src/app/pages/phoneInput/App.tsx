@@ -29,10 +29,10 @@ export const App = () => {
     const { formattedPhoneNumber, newCursorPosition } =
       getNewValueAndCursorPosition(eventTextField, eventCursorPosition);
 
-    // console.log("state:", debugField(textValue, cursorPosition));
-    // console.log("event:", debugField(eventTextField, eventCursorPosition));
+    // console.log("text     ", debugField(textValue, cursorPosition));
+    // console.log("event    ", debugField(eventTextField, eventCursorPosition));
     // console.log(
-    //   "formatted:",
+    //   "formatted",
     //   debugField(formattedPhoneNumber, newCursorPosition),
     // );
 
@@ -41,20 +41,21 @@ export const App = () => {
       eventTextField.length > formattedPhoneNumber.length
     ) {
       setCursorPosition(eventCursorPosition - 1);
-      forceUpdate();
       // The user entered only non-digit characters which when stripped out
-      // means the neither the formatted value nor the new computed cursor
+      // means that neither the formatted value nor the new computed cursor
       // position changed. But we still need to force an
       // update to put the cursor position back in the previous position
       // otherwise it will jump to the end of the input field.
       // Setting the state of those values to the same values as before
       // will not trigger the useEffect() so we use the useForceUpdate()
       // toggle to force the cursor to be put back.
+      forceUpdate();
       return;
     }
 
     setTextValue(formattedPhoneNumber);
     setCursorPosition(newCursorPosition);
+    forceUpdate();
   };
 
   return (
