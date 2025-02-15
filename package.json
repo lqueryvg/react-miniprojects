@@ -17,6 +17,7 @@
     "e2e": "start-server-and-test dev:e2e http://localhost:8080 cypress:run"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.11.3",
     "@fontsource/roboto": "^5.1.1",
     "@hookform/resolvers": "^3.10.0",
     "@mdx-js/loader": "^3.1.0",

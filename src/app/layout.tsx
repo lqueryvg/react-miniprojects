@@ -7,6 +7,7 @@ import "~/styles/globals.css";
 import { getPageMatterIndex } from "~/lib/pageMatter/getIndex";
 import { PageMatterProvider } from "~/lib/pageMatter/context";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "React Mini Projects",
@@ -24,17 +25,19 @@ export default async function RootLayout({
   const pages = await getPageMatterIndex();
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div>
-            <PageMatterProvider pages={pages}>
-              <div>{children}</div>
-            </PageMatterProvider>
-          </div>
-          <SpeedInsights />
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className}>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <div>
+              <PageMatterProvider pages={pages}>
+                <div>{children}</div>
+              </PageMatterProvider>
+            </div>
+            <SpeedInsights />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

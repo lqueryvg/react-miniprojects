@@ -5,10 +5,8 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@shadui/button";
 
-const toggleTheme = (theme: string | undefined) => {
-  if (theme === "dark") return "light";
-  return "dark";
-};
+const toggleTheme = (theme: string | undefined) =>
+  theme === "dark" ? "light" : "dark";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -20,7 +18,7 @@ export function ThemeSwitcher() {
         setTheme(toggleTheme(theme));
       }}
     >
-      {theme === "light" ? <Moon /> : <Sun />}
+      {theme === "light" ? <Sun /> : <Moon />}
     </Button>
   );
 }

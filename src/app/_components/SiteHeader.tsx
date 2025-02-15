@@ -1,11 +1,18 @@
 "use client";
 
-import { Avatar, AvatarFallback } from "@shadui/avatar";
 import { ThemeSwitcher } from "~/app/_components/ThemeSwitcher";
 import Link from "next/link";
 import { Button } from "@shadui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@shadui/tooltip";
 import { SideSheet } from "./SideSheet";
 import { FaGithub } from "react-icons/fa";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { LogIn } from "lucide-react";
 
 export function SiteHeader() {
   return (
@@ -32,10 +39,29 @@ export function SiteHeader() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
+
             <ThemeSwitcher />
-            <Avatar className="h-8 w-8">
-              <AvatarFallback>JB</AvatarFallback>
-            </Avatar>
+
+            <SignedOut>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <SignInButton>
+                      <Button variant="ghost" size="icon">
+                        <LogIn />
+                      </Button>
+                    </SignInButton>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Sign in</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </SignedOut>
+
+            <SignedIn>
+              <UserButton></UserButton>
+            </SignedIn>
           </nav>
         </div>
       </div>
